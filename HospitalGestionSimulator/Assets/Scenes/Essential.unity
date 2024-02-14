@@ -194,7 +194,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1896864098102898741, guid: 314b13a2c4f89c74299eabc2a4c725c7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 314b13a2c4f89c74299eabc2a4c725c7, type: 3}
 --- !u!4 &139406602 stripped
 Transform:
@@ -367,7 +368,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: casual_Female_G
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4720535539113630595, guid: bae26acf817c6dc4e82f95d9ef4ab46a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bae26acf817c6dc4e82f95d9ef4ab46a, type: 3}
 --- !u!1 &933518964
 GameObject:
@@ -402,6 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bcc38c2b8e1c964db3086594778f979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Job: Doctor
 --- !u!136 &933518966
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -529,6 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bcc38c2b8e1c964db3086594778f979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Job: Patient
 --- !u!195 &984593186
 NavMeshAgent:
   m_ObjectHideFlags: 0

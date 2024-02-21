@@ -6,7 +6,7 @@ namespace CharacterSystem
 {
     public class Worker : MonoBehaviour
     {
-        private StatesController statesController;
+        [SerializeField] StatesController statesController;
 
         private void Start()
         {

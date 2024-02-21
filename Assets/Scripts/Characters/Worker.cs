@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace CharacterSystem
 {
-    public class Character : MonoBehaviour
+    public class Worker : MonoBehaviour
     {
-        private StatesController statesController;
+        [SerializeField] StatesController statesController;
 
         private void Start()
         {
@@ -14,7 +14,6 @@ namespace CharacterSystem
         }
 
         [Range(0f, 100f)]
-        public float chaos = 0f;
+        public float workerHappiness = 100f;
     }
 }
-

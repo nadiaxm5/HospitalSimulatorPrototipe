@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace CharacterSystem
 {
-    public class Worker : MonoBehaviour
+    public class Patient : MonoBehaviour
     {
-        private StatesController statesController;
+        [SerializeField] StatesController statesController;
 
         private void Start()
         {
@@ -14,6 +14,6 @@ namespace CharacterSystem
         }
 
         [Range(0f, 100f)]
-        public float workerHappiness = 100f;
+        public float patientHappiness = 100f;
     }
 }

@@ -6,13 +6,13 @@ public class StatesController : MonoBehaviour
 {
     public void DecreaseState(float state)
     {
-        state -= 10f;
+        state -= 1f;
         ClampState(state);
     }
 
     public void IncreaseState(float state)
     {
-        state += 10f;
+        state += 1f;
         ClampState(state);
     }
 

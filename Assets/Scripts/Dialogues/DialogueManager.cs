@@ -17,7 +17,7 @@ public class DialogueManager : MonoBehaviour
     private Story currentStory;
     public bool dialogueIsPlaying { get; set; }
     private TextMeshProUGUI[] choicesText;
-    //public bool storyHasStarted; //Variable provisional antes de crear efectos para el dialogo
+    public bool storyHasStarted; //Variable provisional antes de crear efectos para el dialogo
 
     private void Awake()
     {
@@ -33,7 +33,7 @@ public class DialogueManager : MonoBehaviour
     {
         //Ocultar la interfaz
         dialogueIsPlaying = false;
-        //storyHasStarted = false;
+        storyHasStarted = false;
         dialoguePanel.SetActive(false);
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
@@ -55,10 +55,10 @@ public class DialogueManager : MonoBehaviour
         //Continuar la historia al hacer click mientras las opciones no están en pantalla
         if (Input.GetMouseButtonDown(0) && !choices[0].activeInHierarchy)
         {
-            //if (storyHasStarted)
+            if (storyHasStarted)
                 ContinueStory();
-            //else
-                //storyHasStarted = true;
+            else
+                storyHasStarted = true;
         }
     }
 
@@ -76,7 +76,7 @@ public class DialogueManager : MonoBehaviour
     private void ExitDialogueMode()
     {
         dialogueIsPlaying = false;
-        //storyHasStarted = false;
+        storyHasStarted = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
         Time.timeScale = 1; //Quita la pausa del juego

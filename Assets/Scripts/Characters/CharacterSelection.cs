@@ -9,7 +9,7 @@ public class CharacterSelection : MonoBehaviour
     void Start()
     {
         //Elige el personaje: 0 hombre, 1 mujer. Es una forma provisional luego la mejoraré
-        character = SelectCharacter.characterSelected;
+        character = ChangeScene.characterSelected;
         if (character == 0)
             Destroy(transform.GetChild(1).gameObject);
         else

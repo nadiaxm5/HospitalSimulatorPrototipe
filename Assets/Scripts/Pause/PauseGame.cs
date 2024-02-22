@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class PauseGame : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject pauseMenu;
+
+    private void Start()
+    {
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+    }
+
     public void Pause()
     {
-        if (Time.timeScale == 0)
-            Time.timeScale = 1;
-        else
-            Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void Unpause()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 }

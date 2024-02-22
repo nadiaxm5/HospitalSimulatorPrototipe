@@ -343,7 +343,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1631308019}
-        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
         m_MethodName: SelectCharcter
         m_Mode: 3
         m_Arguments:
@@ -878,7 +878,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1631308019}
-        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
         m_MethodName: SelectCharcter
         m_Mode: 3
         m_Arguments:

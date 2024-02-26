@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DialogueTrigger : MonoBehaviour
 {
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
     public GameObject player;
+    public TMP_Text text;
 
     private void Start()
     {
@@ -25,7 +27,11 @@ public class DialogueTrigger : MonoBehaviour
             {
                 float distance = Vector3.Distance(player.transform.position, transform.position); //Calcula la distancia con el player
                 if(distance <= 2f) //Activa el dialogo solo si el jugador está cerca
+                {
                     DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+                    text.text = "Hecho"; //PROVISIONAL, SE DEBE CAMBIAR
+                }
+                    
             }
         }
     }

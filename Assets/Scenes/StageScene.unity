@@ -378,11 +378,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5067755742887398202, guid: f0ac6fb9ada49f24683e3eca20786103, type: 3}
   m_PrefabInstance: {fileID: 1981183247}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &215409035 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1203697140459770176, guid: f0ac6fb9ada49f24683e3eca20786103, type: 3}
-  m_PrefabInstance: {fileID: 1981183247}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &218433624
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,11 +554,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &261271533 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4370438862957244606, guid: 314b13a2c4f89c74299eabc2a4c725c7, type: 3}
-  m_PrefabInstance: {fileID: 139406601}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &356410585
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,11 +929,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 96.2}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &424833356 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 489417422609642697, guid: bae26acf817c6dc4e82f95d9ef4ab46a, type: 3}
-  m_PrefabInstance: {fileID: 765422483}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &424833358 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5776691538091650739, guid: bae26acf817c6dc4e82f95d9ef4ab46a, type: 3}
@@ -1247,7 +1232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fc07b647c315a4cafaa387366c2f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 215409035}
 --- !u!195 &601494392
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1782,6 +1766,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 933518968}
     m_Modifications:
+    - target: {fileID: 1203697140459770176, guid: f0ac6fb9ada49f24683e3eca20786103, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: afe9de63454bbd448a9886ad5a285ae7, type: 2}
+    - target: {fileID: 1203697140459770176, guid: f0ac6fb9ada49f24683e3eca20786103, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5067755742887398202, guid: f0ac6fb9ada49f24683e3eca20786103, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1844,7 +1836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5557327951299580288, guid: f0ac6fb9ada49f24683e3eca20786103, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5544880246915493832, guid: f0ac6fb9ada49f24683e3eca20786103, type: 3}
@@ -1950,7 +1942,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fc07b647c315a4cafaa387366c2f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 261271533}
 --- !u!195 &933518970
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2164,7 +2155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fc07b647c315a4cafaa387366c2f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 424833356}
 --- !u!195 &984593186
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -21,6 +21,6 @@ public abstract class BaseInteraction : MonoBehaviour
 
     public abstract bool CanPerform(); //Dice si se puede realizar la acción o no
     public abstract void LockInteraction(); //Para acciones que solo pueda hacer un NPC a la vez
-    public abstract void Perform(MonoBehaviour performer, UnityEvent<BaseInteraction> onCompleted = null); //Lo que hacemos al llegar al lugar de la acción
+    public abstract void Perform(MonoBehaviour performer, UnityEvent<BaseInteraction> onCompleted); //Lo que hacemos al llegar al lugar de la acción
     public abstract void UnLockInteraction(); //La acción queda libre para otro NPC
 }

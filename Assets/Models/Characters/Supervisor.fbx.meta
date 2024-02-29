@@ -16,11 +16,17 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 1
     motionNodeName: 
-    rigImportErrors: "Avatar creation failed:\n\tTransform 'TorsoInferior' is not
-      an ancestor of 'L.Brazo'\n"
+    rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Armature|ArmatureAction.001' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'TorsoInferior' has translation
+      animation that will be discarded.\n\t'TorsoSuperior' has scale animation that
+      will be discarded.\n\t'L.Brazo' has translation animation that will be discarded.\n\t'R.Brazo'
+      has translation animation that will be discarded.\n\t'R.Brazo' has scale animation
+      that will be discarded.\n\t'L.PiernaSup' has translation animation that will
+      be discarded.\n\t'R.PiernaSup' has translation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -45,7 +51,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -74,7 +80,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -380,10 +386,30 @@ ModelImporter:
       position: {x: -0, y: 0.020799687, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
+    - name: L.Brazo
+      parentName: TorsoSuperior
+      position: {x: -0.0058785933, y: 0.01018066, z: 0.0004727396}
+      rotation: {x: -0.034552265, y: 0.031793505, z: -0.7125802, w: -0.7000177}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L.Antebrazo
+      parentName: L.Brazo
+      position: {x: -0.00000000161177, y: 0.008831318, z: -1.11758706e-10}
+      rotation: {x: -0.0023918727, y: 0.70740455, z: 0.032861017, w: 0.70604056}
+      scale: {x: 0.9999998, y: 0.99999976, z: 0.99999994}
+    - name: L.Mano
+      parentName: L.Antebrazo
+      position: {x: -5.5879353e-11, y: 0.011292378, z: -8.0792234e-10}
+      rotation: {x: 0.079446994, y: 0.12761796, z: -0.090344705, w: 0.9844997}
+      scale: {x: 0.9999998, y: 0.99999994, z: 0.9999998}
+    - name: L.Mano_end
+      parentName: L.Mano
+      position: {x: -0, y: 0.0046903905, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: R.Brazo
       parentName: TorsoSuperior
       position: {x: 0.005852186, y: 0.0104736015, z: 0.00037536153}
-      rotation: {x: 0.0034207941, y: 0.022701232, z: -0.99618924, w: 0.08414295}
+      rotation: {x: 0.016713092, y: 0.020178635, z: -0.712889, w: 0.70078725}
       scale: {x: 1, y: 1, z: 1}
     - name: R.Antebrazo
       parentName: R.Brazo
@@ -398,26 +424,6 @@ ModelImporter:
     - name: R.Mano_end
       parentName: R.Mano
       position: {x: -0, y: 0.004394642, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: L.Brazo
-      parentName: TorsoSuperior
-      position: {x: -0.0058785933, y: 0.01018066, z: 0.0004727396}
-      rotation: {x: -0.010420838, y: 0.04261926, z: -0.9949113, w: -0.09070063}
-      scale: {x: 1, y: 1, z: 1}
-    - name: L.Antebrazo
-      parentName: L.Brazo
-      position: {x: -0.00000000161177, y: 0.008831318, z: -1.11758706e-10}
-      rotation: {x: -0.008703034, y: 0.7063262, z: 0.06144875, w: 0.70516074}
-      scale: {x: 0.9999998, y: 0.99999976, z: 0.99999994}
-    - name: L.Mano
-      parentName: L.Antebrazo
-      position: {x: -5.5879353e-11, y: 0.011292378, z: -8.0792234e-10}
-      rotation: {x: 0.07944699, y: 0.12761796, z: -0.0903447, w: 0.9844997}
-      scale: {x: 0.9999998, y: 0.99999994, z: 0.9999998}
-    - name: L.Mano_end
-      parentName: L.Mano
-      position: {x: -0, y: 0.0046903905, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Cuerpo

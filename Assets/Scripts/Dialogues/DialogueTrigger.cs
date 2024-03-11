@@ -9,6 +9,7 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private TextAsset inkJSON;
     public GameObject player;
     public TMP_Text text;
+    public ChaosBar chaosBar;
 
     private void Start()
     {
@@ -29,6 +30,7 @@ public class DialogueTrigger : MonoBehaviour
                 if(distance <= 2f) //Activa el dialogo solo si el jugador está cerca
                 {
                     DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+                    chaosBar.SetChaos(30);
                     text.text = "Hecho"; //PROVISIONAL, SE DEBE CAMBIAR
                 }
                     

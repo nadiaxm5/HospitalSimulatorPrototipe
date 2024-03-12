@@ -17,7 +17,7 @@ namespace CharacterSystem
 
         private void Update()
         {
-            //PROVISIONAL PARA PROBAR LA BARRA, BORRAR DESPUES
+            //CODIGO PROVISIONAL PARA PROBAR LA BARRA, BORRAR DESPUES
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 chaosBar.SetChaos(10);

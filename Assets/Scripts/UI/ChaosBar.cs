@@ -7,9 +7,9 @@ public class ChaosBar : MonoBehaviour
 {
     public Slider slider;
 
-    public void SetChaos(int chaos)
+    public void SetChaos(float chaos)
     {
-        slider.value = chaos;
+        slider.value += chaos;
     }
 
 }

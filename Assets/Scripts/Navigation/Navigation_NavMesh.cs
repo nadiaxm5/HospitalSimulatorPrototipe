@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class Navigation_UnityNavMesh : BaseNavigation
+public class Navigation_NavMesh : BaseNavigation
 {
     NavMeshAgent LinkedAgent;
 
@@ -26,14 +26,9 @@ public class Navigation_UnityNavMesh : BaseNavigation
         return true;
     }
 
-    protected override void Tick_Default()
+    protected override void Update_Pathfinding()
     {
-
-    }
-
-    protected override void Tick_Pathfinding()
-    {
-        // no pathfinding in progress?
+        //Si no tiene ruta pendiente, comprobar si es por haberla encontrado o por no haber podido
         if (!LinkedAgent.pathPending)
         {           
             if (LinkedAgent.pathStatus == NavMeshPathStatus.PathComplete)
@@ -43,37 +38,15 @@ public class Navigation_UnityNavMesh : BaseNavigation
         }
     }
 
-    protected override void Tick_PathFollowing()
+    protected override void Update_PathFollowing()
     {
-        // do we have a path and we near the destination?
+        //Si tenemos una ruta y estamos en el destino, se cambia el estado a Idle
         if (LinkedAgent.hasPath && LinkedAgent.remainingDistance <= LinkedAgent.stoppingDistance)
-        {
             OnReachedDestination();
-        }
-        else
-        {
-            if (DEBUG_ShowHeading)
-                Debug.DrawLine(transform.position + Vector3.up, LinkedAgent.steeringTarget, Color.green);
-        }
     }
 
     public override void StopMovement()
     {
         LinkedAgent.ResetPath();
     }
-
-    public override bool FindNearestPoint(Vector3 searchPos, float range, out Vector3 foundPos)
-    {
-        NavMeshHit hitResult;
-        if (NavMesh.SamplePosition(searchPos, out hitResult, range, NavMesh.AllAreas))
-        {
-            foundPos = hitResult.position;
-            return true;
-        }
-
-        foundPos = searchPos;
-
-        return false;
-    }
-
 }

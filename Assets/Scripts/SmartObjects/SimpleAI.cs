@@ -20,11 +20,6 @@ public class SimpleAI : MonoBehaviour
         Navigation = GetComponent<BaseNavigation>();
     }
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         if(CurrentInteraction != null)

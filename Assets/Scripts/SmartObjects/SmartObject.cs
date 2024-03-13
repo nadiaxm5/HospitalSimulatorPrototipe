@@ -32,10 +32,4 @@ public class SmartObject : MonoBehaviour
     {
         SmartObjectManager.Instance.DeregisterSmartObject(this);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

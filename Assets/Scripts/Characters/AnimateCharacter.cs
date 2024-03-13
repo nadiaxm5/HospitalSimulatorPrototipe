@@ -10,7 +10,7 @@ public class AnimateCharacter : MonoBehaviour
 
     private void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
+        agent = GetComponentInParent<NavMeshAgent>();
         animator.SetBool("Moving", false);
     }
 

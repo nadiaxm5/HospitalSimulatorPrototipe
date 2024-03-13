@@ -8,4 +8,5 @@ INCLUDE ../globals.ink
 
 "La junta directiva del hospital te está esperando en la sala de reuniones." 
 
+~ talked_with_recepcionist = true
 ->END

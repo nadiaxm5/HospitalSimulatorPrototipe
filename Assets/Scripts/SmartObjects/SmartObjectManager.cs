@@ -19,16 +19,6 @@ public class SmartObjectManager : MonoBehaviour
         Instance = this;
     }
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     public void RegisterSmartObject(SmartObject toRegister)
     {
         RegisteredObjects.Add(toRegister);

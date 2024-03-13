@@ -1518,6 +1518,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.673
       objectReference: {fileID: 0}
+    - target: {fileID: 4269102110864831730, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7648456262422804167, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: m_Name
       value: MirrorSmartObject

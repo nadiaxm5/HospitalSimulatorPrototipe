@@ -1,0 +1,1 @@
+VAR personaje = 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace CharacterSystem
 {
@@ -8,6 +9,8 @@ namespace CharacterSystem
     {
         [SerializeField] StatesController statesController;
         public ChaosBar chaosBar;
+        public GameObject redScreen;
+        private bool hasTalkedWithNurse;
 
         private void Start()
         {
@@ -26,6 +29,8 @@ namespace CharacterSystem
             {
                 chaosBar.SetChaos(-10);
             }
+
+
         }
 
         [Range(0f, 100f)]

@@ -30,6 +30,7 @@ namespace CharacterSystem
                 chaosBar.SetChaos(-10);
             }
 
+            chaos = chaosBar.getChaosValue();
 
         }
 

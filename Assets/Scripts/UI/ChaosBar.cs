@@ -12,4 +12,9 @@ public class ChaosBar : MonoBehaviour
         slider.value += chaos;
     }
 
+    public float getChaosValue()
+    {
+        return slider.value;
+    }
+
 }

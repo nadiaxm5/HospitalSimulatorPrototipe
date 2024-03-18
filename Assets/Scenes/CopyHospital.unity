@@ -416,7 +416,7 @@ Transform:
   - {fileID: 1561039019}
   m_Father: {fileID: 0}
   m_RootOrder: 23
-  m_LocalEulerAnglesHint: {x: 0, y: 87.423, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 73.557, z: 0}
 --- !u!82 &172223032
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6212,15 +6212,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6798bad6438606e49af781c1e2d58de2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.27
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6798bad6438606e49af781c1e2d58de2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.37
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6798bad6438606e49af781c1e2d58de2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -6.03
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6798bad6438606e49af781c1e2d58de2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6244,7 +6244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6798bad6438606e49af781c1e2d58de2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 78.817
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6798bad6438606e49af781c1e2d58de2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -8062,7 +8062,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1947580091}
-  - component: {fileID: 1947580090}
+  - component: {fileID: 1947580092}
   m_Layer: 0
   m_Name: Timeline
   m_TagString: Untagged
@@ -8070,27 +8070,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!320 &1947580090
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947580089}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 7db22e24c3401b84f82627668e43b5e5, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 5989060161961003204, guid: 7db22e24c3401b84f82627668e43b5e5, type: 2}
-    value: {fileID: 1140156281}
-  - key: {fileID: 5204142578691264555, guid: 7db22e24c3401b84f82627668e43b5e5, type: 2}
-    value: {fileID: 172223026}
-  m_ExposedReferences:
-    m_References: []
 --- !u!4 &1947580091
 Transform:
   m_ObjectHideFlags: 0
@@ -8106,6 +8085,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &1947580092
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947580089}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 1370d3c96a1706e448e8d41b45824386, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 1287403531449917070, guid: 1370d3c96a1706e448e8d41b45824386, type: 2}
+    value: {fileID: 1140156281}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1001 &1981183247
 PrefabInstance:
   m_ObjectHideFlags: 0

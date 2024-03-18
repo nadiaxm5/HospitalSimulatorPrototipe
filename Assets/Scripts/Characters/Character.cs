@@ -15,7 +15,7 @@ namespace CharacterSystem
         private void Start()
         {
             statesController = GetComponent<StatesController>();
-            chaosBar.SetChaos(chaos);
+            chaosBar.AddChaos(chaos);
         }
 
         private void Update()
@@ -23,11 +23,11 @@ namespace CharacterSystem
             //CODIGO PROVISIONAL PARA PROBAR LA BARRA, BORRAR DESPUES
             if (Input.GetKeyDown(KeyCode.Z))
             {
-                chaosBar.SetChaos(10);
+                chaosBar.AddChaos(10);
             }
             if (Input.GetKeyDown(KeyCode.X))
             {
-                chaosBar.SetChaos(-10);
+                chaosBar.AddChaos(-10);
             }
 
             chaos = chaosBar.getChaosValue();

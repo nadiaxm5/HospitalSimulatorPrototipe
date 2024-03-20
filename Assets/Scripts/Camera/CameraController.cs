@@ -5,6 +5,10 @@ using UnityEngine;
 using Cinemachine;
 using UnityEngine.InputSystem;
 
+/// NOT USED IN THE PROJECT
+/// This script moves, rotates and zooms the camera
+/// NOT USED IN THE PROJECT
+
 public class CameraController : MonoBehaviour
 {
     Vector3 moveVector = Vector3.zero;

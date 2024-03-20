@@ -11,6 +11,7 @@ namespace CharacterSystem
         public ChaosBar chaosBar;
         public GameObject redScreen;
         private bool hasTalkedWithNurse;
+        private GameObject target;
 
         private void Start()
         {
@@ -32,6 +33,13 @@ namespace CharacterSystem
 
             chaos = chaosBar.getChaosValue();
 
+            //Codigo para quitar paredes
+            Ray ray = new(Camera.main.transform.position, transform.position - Camera.main.transform.position);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 100) && hit.transform.CompareTag("Wall")){
+                hit.transform.gameObject.SetActive(false);
+                target = hit.transform.gameObject;
+            }
         }
 
         [Range(0f, 100f)]

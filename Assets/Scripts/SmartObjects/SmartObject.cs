@@ -22,10 +22,10 @@ public class SmartObject : MonoBehaviour
             return CachedInteractions;
         }
     }
-    // Start is called before the first frame update
+    
     void Start()
     {
-        SmartObjectManager.Instance.RegisterSmartObject(this);
+        SmartObjectManager.Instance.RegisterSmartObject(this); //Se meten en la lista todos los SmartObjects de la escena
     }
 
     private void OnDestroy()

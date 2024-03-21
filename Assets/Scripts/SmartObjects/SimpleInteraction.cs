@@ -13,18 +13,23 @@ public class SimpleInteraction : BaseInteraction
 
     [SerializeField] protected int MaxSimultaneousUsers = 1;
 
-    protected int NumCurrentUsers = 0;
+    protected int numCurrentUsers = 0;
     protected List<PerformerInfo> CurrentPerformers = new List<PerformerInfo>();
 
     public override bool CanPerform()
     {
-        return NumCurrentUsers < MaxSimultaneousUsers;
+        return numCurrentUsers < MaxSimultaneousUsers;
+    }
+
+    public override int NumCurrentUsers()
+    {
+        return numCurrentUsers;
     }
 
     public override void LockInteraction()
     {
-        ++NumCurrentUsers;
-        if(NumCurrentUsers > MaxSimultaneousUsers)
+        ++numCurrentUsers;
+        if(numCurrentUsers > MaxSimultaneousUsers)
         {
             Debug.LogError($"Too many users have locked this interaction: {_DisplayName}");
         }
@@ -32,7 +37,7 @@ public class SimpleInteraction : BaseInteraction
 
     public override void Perform(MonoBehaviour performer, UnityAction<BaseInteraction> onCompleted)
     {
-        if(NumCurrentUsers <= 0)
+        if(numCurrentUsers <= 0)
         {
             Debug.LogError($"Trying to perform an interaction when there are no users: {_DisplayName}");
             return;
@@ -52,12 +57,14 @@ public class SimpleInteraction : BaseInteraction
 
     public override void UnLockInteraction()
     {
-        if(NumCurrentUsers <= 0)
+        if(numCurrentUsers <= 0)
         {
             Debug.LogError($"Trying to unlock an already unlocked interaction: {_DisplayName}");
         }
-        --NumCurrentUsers;
+        --numCurrentUsers;
     }
+
+    
 
     protected virtual void Update() //Virtual para que una subclase pueda tener su propia implementación
     {

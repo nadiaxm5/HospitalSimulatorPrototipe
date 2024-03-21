@@ -16,8 +16,8 @@ public abstract class BaseNavigation : MonoBehaviour
     //Cabeceras para que aparezcan en el inspector
     [Header("Path Following")]
     [SerializeField] protected float DestinationReachedThreshold = 0.25f;
-    [SerializeField] protected float MaxMoveSpeed = 5f;
-    [SerializeField] protected float RotationSpeed = 120f;
+    [SerializeField] protected float MaxMoveSpeed = 3f;
+    [SerializeField] protected float RotationSpeed = 500f;
 
     [Header("Debug Tools")] //Para errores que no saldrían en consola
     [SerializeField] protected bool DEBUG_UseMoveTarget; 

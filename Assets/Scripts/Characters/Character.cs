@@ -10,8 +10,11 @@ namespace CharacterSystem
         [SerializeField] StatesController statesController;
         public ChaosBar chaosBar;
         public GameObject redScreen;
-        private bool hasTalkedWithNurse;
         private GameObject target;
+
+        private float fadeAmount;
+        Material mat;
+        Color currentColor;
 
         private void Start()
         {
@@ -37,8 +40,14 @@ namespace CharacterSystem
             Ray ray = new(Camera.main.transform.position, transform.position - Camera.main.transform.position);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 100) && hit.transform.CompareTag("Wall")){
-                hit.transform.gameObject.SetActive(false);
+                mat = hit.transform.gameObject.GetComponent<Renderer>().material;
+                currentColor = mat.color;
+                mat.color = new Color(currentColor.r, currentColor.g, currentColor.b, 0.5f);
                 target = hit.transform.gameObject;
+            }
+            else if(mat != null)
+            {
+                mat.color = new Color(currentColor.r, currentColor.g, currentColor.b, 1f);
             }
         }
 

@@ -5,7 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.InputSystem.HID;
 using UnityEngine.UI;
 
-public class CursorManager : MonoBehaviour
+public class CursorChanger : MonoBehaviour
 {
     RaycastManager raycastManager;
     public Texture2D cursorNormal;
@@ -27,12 +27,15 @@ public class CursorManager : MonoBehaviour
             if (hit.collider.CompareTag("Clickable"))
             {
                 ChangeCursor(cursorHover);
+                Debug.Log("Clickable: " + hit.collider);
             }
-        }
+            else
+                ChangeCursor(cursorNormal);
+        }            
     }
 
     private void ChangeCursor(Texture2D cursorType)
     {
-        Cursor.SetCursor(cursorNormal, Vector2.zero, CursorMode.Auto);
+        Cursor.SetCursor(cursorType, Vector2.zero, CursorMode.Auto);
     }
 }

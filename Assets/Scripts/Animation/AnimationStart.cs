@@ -22,7 +22,7 @@ public class AnimationStart : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100) && hit.transform.name == transform.name)
             {
                 float distance = Vector3.Distance(player.transform.position, transform.position);
-                if (distance <= 2f)
+                //if (distance <= 2f)
                     animator.enabled = true;
             }
         }

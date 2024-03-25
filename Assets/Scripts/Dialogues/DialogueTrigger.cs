@@ -24,10 +24,13 @@ public class DialogueTrigger : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
+            Physics.Raycast(ray, out hit, 100);
+            Debug.Log("Objeto:" + hit.transform.name);
             if (Physics.Raycast(ray, out hit, 100) && hit.transform.name == transform.name)
             {
                 float distance = Vector3.Distance(player.transform.position, transform.position); //Calcula la distancia con el player
-                if(distance <= 2f) //Activa el dialogo solo si el jugador está cerca
+                Debug.Log("Distancia:" + distance);
+                if(distance <= 4f) //Activa el dialogo solo si el jugador está cerca
                 {
                     DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
                     //chaosBar.SetChaos(30);

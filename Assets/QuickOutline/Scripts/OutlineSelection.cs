@@ -21,7 +21,6 @@ public class OutlineSelection : MonoBehaviour
         if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out raycastHit)) //Make sure you have EventSystem in the hierarchy before using EventSystem
         {
             highlight = raycastHit.transform;
-            Debug.Log(highlight);
             if (highlight.CompareTag("Selectable") && highlight != selection)
             {
                 Debug.Log("probando");

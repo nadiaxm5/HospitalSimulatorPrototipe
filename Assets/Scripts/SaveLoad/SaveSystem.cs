@@ -5,14 +5,14 @@ using System.Runtime.Serialization.Formatters.Binary;
 //info: https://www.youtube.com/watch?v=XOjd_qU2Ido
 public static class SaveSystem 
 {
-    public static void SavePlayer(PlayerInfo player)
+    public static void SavePlayer(PlayerInfo player, ChaosBar chaosBar)
     {
         BinaryFormatter formatter = new();
 
         string path = Application.persistentDataPath + "/player.sav";
         FileStream stream = new(path, FileMode.Create);
 
-        PlayerData data = new(player);
+        PlayerData data = new(player, chaosBar);
 
         formatter.Serialize(stream, data);
         stream.Close();

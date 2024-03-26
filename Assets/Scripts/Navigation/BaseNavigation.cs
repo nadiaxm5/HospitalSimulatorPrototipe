@@ -74,6 +74,8 @@ public abstract class BaseNavigation : MonoBehaviour
         return RequestPath(); //Devuelve true mientras llama a RequestPath (En Navigation_NavMesh)
     }
 
+    public abstract void RotateToInteraction(Transform target);
+
     public abstract void StopMovement(); //Al detenerse se resetea la ruta (En Navigation_NavMesh)
 
     protected abstract void Initialise(); //Para evitar tener varios Start

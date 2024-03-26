@@ -42,9 +42,9 @@ public class SimpleInteraction : BaseInteraction
             Debug.LogError($"Trying to perform an interaction when there are no users: {_DisplayName}");
             return;
         }
-
+        
         //Comprobar tipo de interacción
-        if(InteractionType == EInteractionType.Instantaneous)
+        if (InteractionType == EInteractionType.Instantaneous)
         {
             onCompleted.Invoke(this);
         }

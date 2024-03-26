@@ -15,6 +15,8 @@ public class SimpleAI : MonoBehaviour
 
     protected float timeUntilNextInteractionPicked = -1f;
 
+    public SmartObject selectedObject;
+
     private void Awake()
     {
         Navigation = GetComponent<BaseNavigation>();
@@ -54,7 +56,7 @@ public class SimpleAI : MonoBehaviour
     {
         //Elegir objeto aleatorio del set de objetos
         int objectIndex = Random.Range(0, SmartObjectManager.Instance.RegisteredObjects.Count);
-        var selectedObject = SmartObjectManager.Instance.RegisteredObjects[objectIndex];
+        selectedObject = SmartObjectManager.Instance.RegisteredObjects[objectIndex];
 
         //Elegir interacción aleatoria del set de interacciones
         int interactionIndex = Random.Range(0, selectedObject.Interactions.Count);

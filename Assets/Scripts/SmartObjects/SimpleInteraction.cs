@@ -42,17 +42,8 @@ public class SimpleInteraction : BaseInteraction
             Debug.LogError($"Trying to perform an interaction when there are no users: {_DisplayName}");
             return;
         }
-        
-        //Comprobar tipo de interacción
-        if (InteractionType == EInteractionType.Instantaneous)
-        {
-            onCompleted.Invoke(this);
-        }
 
-        else if(InteractionType == EInteractionType.OverTime)
-        {
-            CurrentPerformers.Add(new PerformerInfo() { ElapseTime = 0, OnCompleted = onCompleted });
-        }
+        CurrentPerformers.Add(new PerformerInfo() { ElapseTime = 0, OnCompleted = onCompleted });
     }
 
     public override void UnLockInteraction()
@@ -63,8 +54,6 @@ public class SimpleInteraction : BaseInteraction
         }
         --numCurrentUsers;
     }
-
-    
 
     protected virtual void Update() //Virtual para que una subclase pueda tener su propia implementación
     {

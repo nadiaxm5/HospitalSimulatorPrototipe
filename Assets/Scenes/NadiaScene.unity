@@ -393,6 +393,14 @@ PrefabInstance:
       propertyPath: _Duration
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: _DisplayName
+      value: Open Fridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817343837177712936, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: _DisplayName
+      value: Fridge
+      objectReference: {fileID: 0}
     - target: {fileID: 4269102110864831730, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.95
@@ -660,6 +668,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: MaxSimultaneousUsers
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817343837177712936, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: _AIType
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3817343837177712936, guid: ef94afbba85012d429075c90abaa007a, type: 3}
@@ -953,7 +965,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &369298638
 MonoBehaviour:
@@ -1043,7 +1055,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &422348152
 GameObject:
@@ -1202,10 +1214,9 @@ GameObject:
   - component: {fileID: 443585691}
   - component: {fileID: 443585690}
   - component: {fileID: 443585689}
-  - component: {fileID: 443585688}
   - component: {fileID: 443585687}
-  - component: {fileID: 443585686}
   - component: {fileID: 443585694}
+  - component: {fileID: 443585695}
   m_Layer: 6
   m_Name: Worker 2
   m_TagString: Untagged
@@ -1213,20 +1224,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &443585686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 443585685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5fcbcb930264bc4b87316c6073eb092, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickInteractionInterval: 1
-  selectedObject: {fileID: 0}
 --- !u!114 &443585687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1242,20 +1239,6 @@ MonoBehaviour:
   DestinationReachedThreshold: 0.25
   MaxMoveSpeed: 3
   RotationSpeed: 500
---- !u!114 &443585688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 443585685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebea54d96146d6148a0466365042bfe5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statesController: {fileID: 369298638}
-  workerHappiness: 100
 --- !u!114 &443585689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1335,7 +1318,7 @@ Transform:
   m_Children:
   - {fileID: 1167408569}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &443585694
 MonoBehaviour:
@@ -1349,6 +1332,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5628d8563d465084fa3d9638b1f34929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &443585695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443585685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0bba09db9c0fde40ae2f5b8e2f33846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickInteractionInterval: 1
+  selectedObject: {fileID: 0}
 --- !u!1001 &526537834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1452,9 +1449,8 @@ GameObject:
   - component: {fileID: 601494393}
   - component: {fileID: 601494392}
   - component: {fileID: 601494391}
-  - component: {fileID: 601494396}
   - component: {fileID: 601494398}
-  - component: {fileID: 601494397}
+  - component: {fileID: 601494399}
   m_Layer: 6
   m_Name: Worker
   m_TagString: Untagged
@@ -1543,34 +1539,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &601494396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 601494389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebea54d96146d6148a0466365042bfe5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statesController: {fileID: 369298638}
-  workerHappiness: 100
---- !u!114 &601494397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 601494389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5fcbcb930264bc4b87316c6073eb092, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickInteractionInterval: 1
-  selectedObject: {fileID: 0}
 --- !u!114 &601494398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1586,6 +1554,20 @@ MonoBehaviour:
   DestinationReachedThreshold: 0.25
   MaxMoveSpeed: 3
   RotationSpeed: 500
+--- !u!114 &601494399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601494389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0bba09db9c0fde40ae2f5b8e2f33846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickInteractionInterval: 1
+  selectedObject: {fileID: 0}
 --- !u!1 &663926132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,6 +1766,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _InteractionType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817343837177712936, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: _AIType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3817343837177712936, guid: ef94afbba85012d429075c90abaa007a, type: 3}
@@ -2220,7 +2206,7 @@ GameObject:
   - component: {fileID: 984593184}
   - component: {fileID: 984593190}
   - component: {fileID: 984593192}
-  - component: {fileID: 984593191}
+  - component: {fileID: 984593193}
   m_Layer: 6
   m_Name: Patient
   m_TagString: Untagged
@@ -2323,20 +2309,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statesController: {fileID: 369298638}
   patientHappiness: 100
---- !u!114 &984593191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984593183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5fcbcb930264bc4b87316c6073eb092, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickInteractionInterval: 1
-  selectedObject: {fileID: 0}
 --- !u!114 &984593192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2352,6 +2324,20 @@ MonoBehaviour:
   DestinationReachedThreshold: 0.25
   MaxMoveSpeed: 3
   RotationSpeed: 500
+--- !u!114 &984593193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984593183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0e60600599654438bdba6a78b7708d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickInteractionInterval: 1
+  selectedObject: {fileID: 0}
 --- !u!1 &1048121399
 GameObject:
   m_ObjectHideFlags: 0
@@ -2381,6 +2367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836f1800272e09d48866b857a68d1fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WorkerObjects: []
+  PatientObjects: []
 --- !u!4 &1048121401
 Transform:
   m_ObjectHideFlags: 0
@@ -2394,7 +2382,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1167408569 stripped
 Transform:
@@ -2501,7 +2489,7 @@ RectTransform:
   - {fileID: 1599326802}
   - {fileID: 228913622}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2600,7 +2588,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1379244154
 GameObject:
@@ -2651,7 +2639,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1483861804
 PrefabInstance:
@@ -2715,6 +2703,10 @@ PrefabInstance:
     - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _InteractionType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817343837177712936, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: _AIType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3817343837177712936, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _DisplayName
@@ -3333,7 +3325,7 @@ Transform:
   - {fileID: 787944413}
   - {fileID: 180450718}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1948309078 stripped
 Transform:

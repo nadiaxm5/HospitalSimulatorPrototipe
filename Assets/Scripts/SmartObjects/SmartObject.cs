@@ -2,15 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EAIType
+{
+    Patient = 0,
+    Worker = 1,
+    Both = 2
+}
+
 public class SmartObject : MonoBehaviour
 {
     [SerializeField] protected string _DisplayName;
     [SerializeField] protected Transform _InteractionMarker;
+    [SerializeField] protected EAIType _AIType = EAIType.Worker;
     protected List<BaseInteraction> CachedInteractions = null;
 
     //InteractionPoint será el destino que realmente se marcará para la acción
     public Vector3 InteractionPoint => _InteractionMarker != null ? _InteractionMarker.position : transform.position;
-    
+    public EAIType AIType => _AIType;
     public string DisplayName => _DisplayName;
 
     public List<BaseInteraction> Interactions

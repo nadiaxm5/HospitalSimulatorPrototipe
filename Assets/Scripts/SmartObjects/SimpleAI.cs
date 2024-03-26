@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(BaseNavigation))]
 
-public class SimpleAI : MonoBehaviour
+public abstract class SimpleAI : MonoBehaviour
 {
     [SerializeField] protected float pickInteractionInterval = 1f;
 
@@ -15,18 +15,18 @@ public class SimpleAI : MonoBehaviour
 
     protected float timeUntilNextInteractionPicked = -1f;
 
-    public SmartObject selectedObject;
+    [HideInInspector] public SmartObject selectedObject;
 
     private void Awake()
     {
         Navigation = GetComponent<BaseNavigation>();
     }
 
-    void Update()
+    protected void HandleInteractionOrPickNext(List<SmartObject> ObjectsByAIType)
     {
-        if(CurrentInteraction != null)
+        if (CurrentInteraction != null)
         {
-            if(Navigation.IsAtDestination && !StartedPerforming)
+            if (Navigation.IsAtDestination && !StartedPerforming)
             {
                 StartedPerforming = true;
                 CurrentInteraction.Perform(this, OnInteractionFinished);
@@ -37,29 +37,30 @@ public class SimpleAI : MonoBehaviour
             timeUntilNextInteractionPicked -= Time.deltaTime;
 
             //Elegir una acción
-            if(timeUntilNextInteractionPicked <= 0)
+            if (timeUntilNextInteractionPicked <= 0)
             {
                 timeUntilNextInteractionPicked = pickInteractionInterval;
-                PickRandomInteraction();
-            } 
+                PickRandomInteraction(ObjectsByAIType);
+            }
         }
     }
 
-    void OnInteractionFinished(BaseInteraction interaction)
+    protected void OnInteractionFinished(BaseInteraction interaction)
     {
         interaction.UnLockInteraction();
         CurrentInteraction = null;
         Debug.Log($"Finished {interaction.DisplayName}");
     }
 
-    void PickRandomInteraction()
+    protected void PickRandomInteraction(List<SmartObject> ObjectsByAIType)
     {
         //Elegir objeto aleatorio del set de objetos
-        int objectIndex = Random.Range(0, SmartObjectManager.Instance.RegisteredObjects.Count);
-        selectedObject = SmartObjectManager.Instance.RegisteredObjects[objectIndex];
+        int objectIndex = Random.Range(0, ObjectsByAIType.Count);
+        selectedObject = ObjectsByAIType[objectIndex];
 
-        //Elegir interacción aleatoria del set de interacciones
+        //Elegir interacción aleatoria del set de interacciones del objeto seleccionado
         int interactionIndex = Random.Range(0, selectedObject.Interactions.Count);
+        Debug.Log($"En objeto {selectedObject.DisplayName} hay {selectedObject.Interactions.Count} interacciones");
         var selectedInteraction = selectedObject.Interactions[interactionIndex];
 
         //Comprobar si puede realizar la interacción
@@ -83,16 +84,6 @@ public class SimpleAI : MonoBehaviour
                 Navigation.SetDestination(selectedObject.InteractionPoint);
                 Debug.Log($"Going to {CurrentInteraction.DisplayName} at {selectedObject.DisplayName}");
             }
-
-            
-
-            //if (!Navigation.SetDestination(selectedObject.InteractionPoint))
-            //{
-            //    Debug.LogError($"Could not move to {selectedObject.name}");
-            //    CurrentInteraction = null;
-            //}
-            //else
-            //    Debug.Log($"Going to {CurrentInteraction.DisplayName} at {selectedObject.DisplayName}");
         }
     }
 }

@@ -302,8 +302,8 @@ GameObject:
   - component: {fileID: 8473977638442927042}
   - component: {fileID: 392611810209293222}
   - component: {fileID: 4858010314561709464}
-  - component: {fileID: 8750949987499408125}
   - component: {fileID: 4006479515184198186}
+  - component: {fileID: 4482501080165695301}
   - component: {fileID: 4260354598891134947}
   m_Layer: 0
   m_Name: Player
@@ -391,6 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608b75c7ce477894faf6a51e364a0241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chaosBar: {fileID: 0}
 --- !u!114 &4858010314561709464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,19 +404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6abae16daaf27d4989a47ff312407cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8750949987499408125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2406435341526903418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4fc07b647c315a4cafaa387366c2f40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 8993297344953166522}
 --- !u!114 &4006479515184198186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,7 +418,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statesController: {fileID: 0}
   chaosBar: {fileID: 0}
+  redScreen: {fileID: 0}
   chaos: 0
+--- !u!114 &4482501080165695301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2406435341526903418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4fc07b647c315a4cafaa387366c2f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!195 &4260354598891134947
 NavMeshAgent:
   m_ObjectHideFlags: 0

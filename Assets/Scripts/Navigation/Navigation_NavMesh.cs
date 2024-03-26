@@ -49,7 +49,7 @@ public class Navigation_NavMesh : BaseNavigation
         }
 
         //Si un NPC tiene una ruta y esté cerca del destino, se gira hacia él
-        else if (LinkedAI != null && LinkedAgent.hasPath && LinkedAgent.remainingDistance <= LinkedAgent.stoppingDistance + 3f)
+        else if (LinkedAI != null && LinkedAgent.hasPath && LinkedAgent.remainingDistance <= LinkedAgent.stoppingDistance + 2f)
         {
             RotateToInteraction(LinkedAI.selectedObject.transform);
             Debug.Log($"Rotating to {LinkedAI.selectedObject.DisplayName} at {LinkedAI.selectedObject.transform.position}");

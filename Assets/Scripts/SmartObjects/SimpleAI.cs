@@ -4,9 +4,9 @@ using UnityEngine;
 
 [RequireComponent(typeof(BaseNavigation))]
 
-public class SimpleAI : MonoBehaviour
+public abstract class SimpleAI : MonoBehaviour
 {
-    [SerializeField] protected float pickInteractionInterval = 2f;
+    [SerializeField] protected float pickInteractionInterval = 1f;
 
     protected BaseNavigation Navigation;
 
@@ -15,16 +15,18 @@ public class SimpleAI : MonoBehaviour
 
     protected float timeUntilNextInteractionPicked = -1f;
 
+    [HideInInspector] public SmartObject selectedObject;
+
     private void Awake()
     {
         Navigation = GetComponent<BaseNavigation>();
     }
 
-    void Update()
+    protected void HandleInteractionOrPickNext(List<SmartObject> ObjectsByAIType)
     {
-        if(CurrentInteraction != null)
+        if (CurrentInteraction != null)
         {
-            if(Navigation.IsAtDestination && !StartedPerforming)
+            if (Navigation.IsAtDestination && !StartedPerforming)
             {
                 StartedPerforming = true;
                 CurrentInteraction.Perform(this, OnInteractionFinished);
@@ -34,30 +36,31 @@ public class SimpleAI : MonoBehaviour
         {
             timeUntilNextInteractionPicked -= Time.deltaTime;
 
-            //Tiempo para elegir una interacción
-            if(timeUntilNextInteractionPicked <= 0)
+            //Elegir una acción
+            if (timeUntilNextInteractionPicked <= 0)
             {
                 timeUntilNextInteractionPicked = pickInteractionInterval;
-                PickRandomInteraction();
-            } 
+                PickRandomInteraction(ObjectsByAIType);
+            }
         }
     }
 
-    void OnInteractionFinished(BaseInteraction interaction)
+    protected void OnInteractionFinished(BaseInteraction interaction)
     {
         interaction.UnLockInteraction();
         CurrentInteraction = null;
         Debug.Log($"Finished {interaction.DisplayName}");
     }
 
-    void PickRandomInteraction()
+    protected void PickRandomInteraction(List<SmartObject> ObjectsByAIType)
     {
         //Elegir objeto aleatorio del set de objetos
-        int objectIndex = Random.Range(0, SmartObjectManager.Instance.RegisteredObjects.Count);
-        var selectedObject = SmartObjectManager.Instance.RegisteredObjects[objectIndex];
+        int objectIndex = Random.Range(0, ObjectsByAIType.Count);
+        selectedObject = ObjectsByAIType[objectIndex];
 
-        //Elegir interacción aleatoria del set de interacciones
+        //Elegir interacción aleatoria del set de interacciones del objeto seleccionado
         int interactionIndex = Random.Range(0, selectedObject.Interactions.Count);
+        Debug.Log($"En objeto {selectedObject.DisplayName} hay {selectedObject.Interactions.Count} interacciones");
         var selectedInteraction = selectedObject.Interactions[interactionIndex];
 
         //Comprobar si puede realizar la interacción
@@ -67,14 +70,20 @@ public class SimpleAI : MonoBehaviour
             CurrentInteraction.LockInteraction();
             StartedPerforming = false;
 
-            //Moverse al destino
-            if (!Navigation.SetDestination(selectedObject.InteractionPoint))
+            if(CurrentInteraction.NumCurrentUsers() > 1) //Si es una acción de más de una persona y ya hay alguien a parte de ti
             {
-                Debug.LogError($"Could not move to {selectedObject.name}");
-                CurrentInteraction = null;
+                //Moverse al lado del destino
+                float offsetX = 1f;
+                Vector3 sideDestination = selectedObject.InteractionPoint + new Vector3(offsetX, 0, 0);
+                Navigation.SetDestination(sideDestination);
+                Debug.Log($"Going to {CurrentInteraction.DisplayName} at the side of {selectedObject.DisplayName}");
             }
             else
+            {
+                //Moverse al destino
+                Navigation.SetDestination(selectedObject.InteractionPoint);
                 Debug.Log($"Going to {CurrentInteraction.DisplayName} at {selectedObject.DisplayName}");
+            }
         }
     }
 }

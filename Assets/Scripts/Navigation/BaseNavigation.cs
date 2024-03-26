@@ -13,15 +13,12 @@ public abstract class BaseNavigation : MonoBehaviour
         Failed_NoPathExists = 100
     }
 
-    //Cabeceras para que aparezcan en el inspector
+    //Cabecera para que aparezcan en el inspector
     [Header("Path Following")]
     [SerializeField] protected float DestinationReachedThreshold = 0.25f;
     [SerializeField] protected float MaxMoveSpeed = 3f;
     [SerializeField] protected float RotationSpeed = 500f;
 
-    [Header("Debug Tools")] //Para errores que no saldrían en consola
-    [SerializeField] protected bool DEBUG_UseMoveTarget; 
-    [SerializeField] protected Transform DEBUG_MoveTarget;
 
     public Vector3 Destination { get; private set; }
     public EState State { get; private set; } = EState.Idle; //Estado predefinido: Idle
@@ -48,9 +45,6 @@ public abstract class BaseNavigation : MonoBehaviour
 
     void Update()
     {
-        if (DEBUG_UseMoveTarget) //Proporcionar un objetivo hacia el que quería dirigirme
-            SetDestination(DEBUG_MoveTarget.position);
-
         if (State == EState.FindingPath)
             Update_Pathfinding();
     }
@@ -80,6 +74,8 @@ public abstract class BaseNavigation : MonoBehaviour
         return RequestPath(); //Devuelve true mientras llama a RequestPath (En Navigation_NavMesh)
     }
 
+    public abstract void RotateToInteraction(Transform target);
+
     public abstract void StopMovement(); //Al detenerse se resetea la ruta (En Navigation_NavMesh)
 
     protected abstract void Initialise(); //Para evitar tener varios Start
@@ -99,6 +95,7 @@ public abstract class BaseNavigation : MonoBehaviour
     protected void OnFailedToFindPath()
     {
         State = EState.Failed_NoPathExists; //Cambiar estado al error de no encontar ruta
+        Debug.Log("No path exists");
     }
 
     protected void OnReachedDestination()

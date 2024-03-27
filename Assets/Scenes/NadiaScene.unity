@@ -663,6 +663,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: _Duration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _DisplayName
       value: PlayArcade
       objectReference: {fileID: 0}
@@ -1344,7 +1348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bba09db9c0fde40ae2f5b8e2f33846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickInteractionInterval: 1
+  pickInteractionInterval: 0.5
   selectedObject: {fileID: 0}
 --- !u!1001 &526537834
 PrefabInstance:
@@ -1566,7 +1570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bba09db9c0fde40ae2f5b8e2f33846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickInteractionInterval: 1
+  pickInteractionInterval: 0.5
   selectedObject: {fileID: 0}
 --- !u!1 &663926132
 GameObject:
@@ -1758,7 +1762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _Duration
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _DisplayName
@@ -2336,7 +2340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0e60600599654438bdba6a78b7708d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickInteractionInterval: 1
+  pickInteractionInterval: 0.5
   selectedObject: {fileID: 0}
 --- !u!1 &1048121399
 GameObject:

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public abstract class SimpleAI : MonoBehaviour
 {
-    [SerializeField] protected float pickInteractionInterval = 1f;
+    [SerializeField] protected float pickInteractionInterval = 0.5f;
 
     protected BaseNavigation Navigation;
 
@@ -70,7 +70,7 @@ public abstract class SimpleAI : MonoBehaviour
             CurrentInteraction.LockInteraction();
             StartedPerforming = false;
 
-            if(CurrentInteraction.NumCurrentUsers() > 1) //Si es una acción de más de una persona y ya hay alguien a parte de ti
+            if(CurrentInteraction.NumCurrentUsers() >= 2) //Si es una acción de más de una persona y ya hay alguien a parte de ti
             {
                 //Moverse al lado del destino
                 float offsetX = 1f;

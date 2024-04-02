@@ -27,7 +27,7 @@ public class CursorChanger : MonoBehaviour
             if (hit.collider.CompareTag("Clickable"))
             {
                 ChangeCursor(cursorHover);
-                Debug.Log("Clickable: " + hit.collider);
+                //Debug.Log("Clickable: " + hit.collider);
             }
             else
                 ChangeCursor(cursorNormal);

@@ -16,10 +16,11 @@ public class MoveCharacter : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Se mueve donde pulse el botón izquierdo del mouse
+        if (Input.GetMouseButtonDown(0) && !raycastManager.GetHit().transform.CompareTag("Clickable")) // Se mueve donde pulse el botón izquierdo del mouse
         {
             Vector3 destination = raycastManager.GetHit().point;
             Navigation.SetDestination(destination);
+            Debug.Log("Objeto:" + raycastManager.GetHit().transform.tag);
         }
 
         //if (Input.GetMouseButtonDown(1)) // Se cambia de personaje con el botón derecho del mouse

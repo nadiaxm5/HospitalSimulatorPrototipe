@@ -25,11 +25,14 @@ public class DialogueManager : MonoBehaviour
     private TextMeshProUGUI[] choicesText;
     public bool storyHasStarted; //Variable provisional antes de crear efectos para el dialogo
     private DialogueVariables dialogueVariables;
+    private Coroutine displayLineCoroutine;
+    private float typingSpeed;
 
     private void Awake()
     {
         instance = this;
         dialogueVariables = new DialogueVariables(globalsInkFile.filePath);
+        typingSpeed = 0.01f;
     }
 
     public static DialogueManager GetInstance()
@@ -97,7 +100,12 @@ public class DialogueManager : MonoBehaviour
     {
         if (currentStory.canContinue)
         {
-            dialogueText.text = currentStory.Continue();
+            if (displayLineCoroutine != null)
+            {
+                StopCoroutine(displayLineCoroutine);
+            }
+            displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
+            //dialogueText.text = currentStory.Continue();
             DisplayChoices();
         }
         else
@@ -147,5 +155,40 @@ public class DialogueManager : MonoBehaviour
             Debug.LogWarning("Ink Variable was found to be null:  " + variableName);
         }
         return variableValue;
+    }
+
+    private IEnumerator DisplayLine(string line)
+    {
+        dialogueText.text = "";
+
+        bool isAddingRichTextTag = false;
+
+        foreach (char letter in line.ToCharArray())
+        {
+            // if (Input.GetMouseButtonDown(0))
+            // {
+            //    dialogueText.text = line;
+            //    break;
+            // }
+            //isTalking = true;
+
+            if (letter == '<' || isAddingRichTextTag)
+            {
+                isAddingRichTextTag = true;
+                dialogueText.text += letter;
+                if (letter == '>')
+                {
+                    isAddingRichTextTag = false;
+                }
+            }
+            else
+            {
+                dialogueText.text += letter;
+                yield return new WaitForSeconds(typingSpeed);
+            }
+        }
+        //isTalking = false;
+        DisplayChoices();
+
     }
 }

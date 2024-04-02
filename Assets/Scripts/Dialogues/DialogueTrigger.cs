@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using TMPro;
 
 public class DialogueTrigger : MonoBehaviour
@@ -8,12 +9,15 @@ public class DialogueTrigger : MonoBehaviour
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
     public GameObject player;
+    private float playerSpeed;
+    private Animator playerAnimator;
     //public TMP_Text text;
     //public ChaosBar chaosBar;
 
-    private void Start()
+    private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        playerSpeed = player.GetComponent<NavMeshAgent>().speed;
     }
 
     void Update()

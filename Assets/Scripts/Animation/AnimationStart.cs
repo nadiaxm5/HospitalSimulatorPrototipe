@@ -24,7 +24,6 @@ public class AnimationStart : MonoBehaviour
                 float distance = Vector3.Distance(player.transform.position, transform.position);
                 if (distance <= 6f)
                 {
-
                     animator.enabled = true;
                     animator.SetBool("Open", !animator.GetBool("Open"));
                 }

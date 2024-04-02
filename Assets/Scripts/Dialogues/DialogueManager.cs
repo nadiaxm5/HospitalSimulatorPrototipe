@@ -78,7 +78,7 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(true);
 
         dialogueVariables.StartListening(currentStory);
-        Time.timeScale = 0; //Pausa el juego
+        //Time.timeScale = 0; //Pausa el juego
 
         ContinueStory();
     }
@@ -90,7 +90,7 @@ public class DialogueManager : MonoBehaviour
         storyHasStarted = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
-        Time.timeScale = 1; //Quita la pausa del juego
+        //Time.timeScale = 1; //Quita la pausa del juego
     }
 
     private void ContinueStory()

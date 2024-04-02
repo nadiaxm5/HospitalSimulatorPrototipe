@@ -9,15 +9,15 @@ public class DialogueTrigger : MonoBehaviour
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
     public GameObject player;
-    private float playerSpeed;
-    private Animator playerAnimator;
+    public GameObject dialogueBox;
+    public GameObject dialogueBoxSolved;
     //public TMP_Text text;
     //public ChaosBar chaosBar;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerSpeed = player.GetComponent<NavMeshAgent>().speed;
+        dialogueBoxSolved.SetActive(false);
     }
 
     void Update()
@@ -37,6 +37,8 @@ public class DialogueTrigger : MonoBehaviour
                 if(distance <= 4f) //Activa el dialogo solo si el jugador está cerca
                 {
                     DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+                    dialogueBox.SetActive(false);
+                    dialogueBoxSolved.SetActive(true);
                     //chaosBar.SetChaos(30);
                     //text.text = "Hecho"; //PROVISIONAL, SE DEBE CAMBIAR
                 }

@@ -8,6 +8,7 @@ public class NPCMoveTo : MonoBehaviour
     NavMeshAgent agent;
     Animator animator;
     public Transform waypoint;
+    [SerializeField] private AudioClip emergencySound;
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class NPCMoveTo : MonoBehaviour
     {
         if (((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("emergency")).value){
             animator.SetBool("Moving", true);
+            SoundFXManager.instance.PlaySoundFXClip(emergencySound, transform, 1f);
             agent.destination = waypoint.position;
         }
     }

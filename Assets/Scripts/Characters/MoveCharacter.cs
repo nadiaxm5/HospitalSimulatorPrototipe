@@ -7,6 +7,7 @@ public class MoveCharacter : MonoBehaviour
 {
     protected BaseNavigation Navigation;
     RaycastManager raycastManager;
+    
 
     private void Awake()
     {

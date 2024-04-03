@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpriteLookAtCamera : MonoBehaviour
 {
-
     private Vector3 originalRotation;
 
     private void Awake()

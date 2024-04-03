@@ -6,6 +6,7 @@ public class AnimationStart : MonoBehaviour
 {
     Animator animator;
     GameObject player;
+    [SerializeField] private AudioClip openDoorSound;
 
     private void Start()
     {
@@ -26,6 +27,7 @@ public class AnimationStart : MonoBehaviour
                 {
                     animator.enabled = true;
                     animator.SetBool("Open", !animator.GetBool("Open"));
+                    SoundFXManager.instance.PlaySoundFXClip(openDoorSound, transform, 1f);
                 }
                     
             }

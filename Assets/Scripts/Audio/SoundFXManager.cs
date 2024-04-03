@@ -14,7 +14,7 @@ public class SoundFXManager : MonoBehaviour
             instance = this;
     }
 
-    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume)
+    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume, bool loop = false)
     {
         //Spawnear el GameObject
         AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
@@ -24,6 +24,9 @@ public class SoundFXManager : MonoBehaviour
 
         //Asignar el volumen
         audioSource.volume = volume;
+
+        //Ver si loopea o no
+        audioSource.loop = loop;
 
         //Reproducir el sonido
         audioSource.Play();

@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Globals Ink File")]
     [SerializeField] private InkFile globalsInkFile;
+    [SerializeField] private AudioClip textSound;
 
     private static DialogueManager instance;
     private Story currentStory;
@@ -27,6 +28,8 @@ public class DialogueManager : MonoBehaviour
     private DialogueVariables dialogueVariables;
     private Coroutine displayLineCoroutine;
     private float typingSpeed;
+
+
 
     private void Awake()
     {
@@ -161,33 +164,13 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueText.text = "";
 
-        bool isAddingRichTextTag = false;
-
         foreach (char letter in line.ToCharArray())
         {
-            // if (Input.GetMouseButtonDown(0))
-            // {
-            //    dialogueText.text = line;
-            //    break;
-            // }
-            //isTalking = true;
-
-            if (letter == '<' || isAddingRichTextTag)
-            {
-                isAddingRichTextTag = true;
-                dialogueText.text += letter;
-                if (letter == '>')
-                {
-                    isAddingRichTextTag = false;
-                }
-            }
-            else
-            {
-                dialogueText.text += letter;
-                yield return new WaitForSeconds(typingSpeed);
-            }
+            Debug.Log("Letra: " + letter);
+            SoundFXManager.instance.PlaySoundFXClip(textSound, transform, 1f);
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
         }
-        //isTalking = false;
         DisplayChoices();
 
     }

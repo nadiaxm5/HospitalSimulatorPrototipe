@@ -10,11 +10,14 @@ public class NPCMoveTo : MonoBehaviour
     public Transform waypoint;
     [SerializeField] private AudioClip emergencySound;
 
+    private bool isPlaying;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         animator.SetBool("Moving", false);
+        isPlaying = false;
     }
 
     // Update is called once per frame
@@ -22,7 +25,12 @@ public class NPCMoveTo : MonoBehaviour
     {
         if (((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("emergency")).value){
             animator.SetBool("Moving", true);
-            SoundFXManager.instance.PlaySoundFXClip(emergencySound, transform, 1f);
+            if (!isPlaying)
+            {
+                SoundFXManager.instance.PlaySoundFXClip(emergencySound, transform, 1f, true);
+                isPlaying = true;
+            }
+
             agent.destination = waypoint.position;
         }
     }

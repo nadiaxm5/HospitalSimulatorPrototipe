@@ -163,11 +163,14 @@ public class DialogueManager : MonoBehaviour
     private IEnumerator DisplayLine(string line)
     {
         dialogueText.text = "";
+        bool willSound = true;
 
         foreach (char letter in line.ToCharArray())
         {
             Debug.Log("Letra: " + letter);
-            SoundFXManager.instance.PlaySoundFXClip(textSound, transform, 1f);
+            if(willSound)
+                SoundFXManager.instance.PlaySoundFXClip(textSound, transform, 1f);
+            willSound = !willSound;
             dialogueText.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }

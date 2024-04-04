@@ -13,7 +13,7 @@ public class EraseCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("talked_with_recepcionist")).value)
+        if (((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("talked_with_director")).value)
         {
             gameObject.SetActive(false);
         }

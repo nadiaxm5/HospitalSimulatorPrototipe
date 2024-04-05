@@ -4665,20 +4665,7 @@ MonoBehaviour:
   - {fileID: 2131392374}
   - {fileID: 1525216187}
   - {fileID: 422348152}
-  globalsInkFile:
-    compileAutomatically: 0
-    inkAsset: {fileID: 102900000, guid: fe6a00ba72c019848b5e46937fe9a691, type: 3}
-    jsonAssetDirectory: {fileID: 0}
-    jsonAsset: {fileID: 0}
-    unhandledCompileErrors: []
-    errors: []
-    warnings: []
-    todos: []
-    parents: []
-    masterInkAssets: []
-    masterInkAsset: {fileID: 0}
-    includePaths: []
-    includes: []
+  loadGlobalsJSON: {fileID: 4900000, guid: 7309954491c6fac4095e28c24a22dca2, type: 3}
   textSound: {fileID: 8300000, guid: 259b2ca002bcf2645a91d374c7ad83a6, type: 3}
   storyHasStarted: 0
 --- !u!4 &1379244156

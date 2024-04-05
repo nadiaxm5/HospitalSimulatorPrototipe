@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Ink.Runtime;
-using Ink.UnityIntegration;
 using UnityEngine.EventSystems;
 
 
@@ -17,7 +16,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject[] choices;
 
     [Header("Globals Ink File")]
-    [SerializeField] private InkFile globalsInkFile;
+    [SerializeField] private TextAsset loadGlobalsJSON;
     [SerializeField] private AudioClip textSound;
 
     private static DialogueManager instance;
@@ -34,7 +33,7 @@ public class DialogueManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        dialogueVariables = new DialogueVariables(globalsInkFile.filePath);
+        dialogueVariables = new DialogueVariables(loadGlobalsJSON);
         typingSpeed = 0.01f;
     }
 

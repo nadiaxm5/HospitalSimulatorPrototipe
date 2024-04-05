@@ -15,4 +15,10 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene(scene);
     }
+
+    public void SelectAvatar(int n)
+    {
+        ((Ink.Runtime.IntValue)DialogueManager.GetInstance().GetVariableState("personaje")).value = n;
+        SceneManager.LoadScene("NewHospital");
+    }
 }

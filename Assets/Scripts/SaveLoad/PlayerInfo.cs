@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInfo : MonoBehaviour
 {
-    public ChaosBar chaosBar;
+    public BarManager chaosBar;
     public void SavePlayer()
     {
         SaveSystem.SavePlayer(this, chaosBar);

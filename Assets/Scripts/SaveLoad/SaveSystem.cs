@@ -5,7 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 //info: https://www.youtube.com/watch?v=XOjd_qU2Ido
 public static class SaveSystem 
 {
-    public static void SavePlayer(PlayerInfo player, ChaosBar chaosBar)
+    public static void SavePlayer(PlayerInfo player, BarManager chaosBar)
     {
         BinaryFormatter formatter = new();
 

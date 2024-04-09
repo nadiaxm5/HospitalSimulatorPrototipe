@@ -28,8 +28,6 @@ public class DialogueManager : MonoBehaviour
     private Coroutine displayLineCoroutine;
     private float typingSpeed;
 
-
-
     private void Awake()
     {
         instance = this;

@@ -8,7 +8,7 @@ namespace CharacterSystem
     public class Character : MonoBehaviour
     {
         [SerializeField] StatesController statesController;
-        public ChaosBar chaosBar;
+        public BarManager chaosBar;
         public GameObject redScreen;
         private GameObject target;
 

@@ -5,6 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(BaseNavigation))]
 public class AIWithNeeds : MonoBehaviour
 {
+    [HideInInspector] public float initialHappinessLvl = 0.8f; //Este nivel bajará por acciones, igual para todos al inicio
+    [HideInInspector] public float initialEnergyLvl; //Diferente para cada NPC
+
+    [SerializeField] float baseHappinessDecayRate = 0.005f;
+    [SerializeField] float baseEnergyDecayRate = 0.005f;
+
+    public float currentEnergy { get; protected set; }
+
     [SerializeField] protected float pickInteractionInterval = 0.5f;
 
     protected BaseNavigation Navigation;

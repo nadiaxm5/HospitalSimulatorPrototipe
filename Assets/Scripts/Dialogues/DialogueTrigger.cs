@@ -11,13 +11,16 @@ public class DialogueTrigger : MonoBehaviour
     public GameObject player;
     public GameObject dialogueBox;
     public GameObject dialogueBoxSolved;
-    //public TMP_Text text;
+    public int needToTalk;
+    private int timesTalked;
+    public TMP_Text text;
     //public ChaosBar chaosBar;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         dialogueBoxSolved.SetActive(false);
+        timesTalked = 0;
     }
 
     void Update()
@@ -36,14 +39,18 @@ public class DialogueTrigger : MonoBehaviour
                 if(distance <= 4f) //Activa el dialogo solo si el jugador está cerca
                 {
                     DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
-                    dialogueBox.SetActive(false);
-                    dialogueBoxSolved.SetActive(true);
+                    timesTalked++;
+                    if(timesTalked >= needToTalk)
+                    {
+                        dialogueBox.SetActive(false);
+                        dialogueBoxSolved.SetActive(true);
+                    }
                     //chaosBar.SetChaos(30);
-                    //text.text = "Hecho"; //PROVISIONAL, SE DEBE CAMBIAR
                 }
                     
             }
         }
+        text.text = ((Ink.Runtime.StringValue)DialogueManager.GetInstance().GetVariableState("current_mission")).value;
     }
 
 }

@@ -9,4 +9,5 @@ INCLUDE ../globals.ink
 Ve al despacho de la directora del hospital, te espera.
 
 ~ talked_with_recepcionist = true
+~ current_mission = "Habla con la directora"
 ->END

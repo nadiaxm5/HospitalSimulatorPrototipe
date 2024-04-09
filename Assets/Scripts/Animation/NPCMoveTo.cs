@@ -23,7 +23,7 @@ public class NPCMoveTo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("emergency")).value){
+        if (((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("emergency")).value && !DialogueManager.GetInstance().dialogueIsPlaying){
             animator.SetBool("Moving", true);
             if (!isPlaying)
             {

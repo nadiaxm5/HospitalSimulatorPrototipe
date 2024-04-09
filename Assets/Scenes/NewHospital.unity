@@ -6417,6 +6417,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Recepcionista
       objectReference: {fileID: 0}
+    - target: {fileID: 6741748494450597717, guid: c175f22f4260c8449b386d930ad3078a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 52f5e6dd9998cd3479419e6b36e671f0, type: 2}
+    - target: {fileID: 7706110884207132511, guid: c175f22f4260c8449b386d930ad3078a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 10504efd8a456e046807de278565b872, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c175f22f4260c8449b386d930ad3078a, type: 3}
 --- !u!4 &1832319903 stripped

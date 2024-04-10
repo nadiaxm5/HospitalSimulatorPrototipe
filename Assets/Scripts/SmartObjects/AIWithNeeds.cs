@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EStat //Estados que afectan a las acciones
+{
+    Energy,
+    Stress,
+    Hunger
+}
+
 [RequireComponent(typeof(BaseNavigation))]
 
 public abstract class AIWithNeeds : MonoBehaviour

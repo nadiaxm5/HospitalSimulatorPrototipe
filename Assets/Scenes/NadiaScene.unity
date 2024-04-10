@@ -980,7 +980,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 369298636}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ebf896097f096e4bbad669119194963, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ad315abc02491f46bc3f205d2083039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   globalPatientHappiness: 0
@@ -1338,9 +1338,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialHappinessLvl: 0.8
-  initialEnergyLvl: 0
-  baseHappinessDecayRate: 0.005
-  baseEnergyDecayRate: 0.005
+  HappinessDecayRate: 0.005
+  EnergyDecayRate: 0.005
+  StressIncreaseRate: 0.005
+  HungerIncreaseRate: 0.005
   pickInteractionInterval: 0.5
   selectedObject: {fileID: 0}
 --- !u!1001 &526537834
@@ -1564,9 +1565,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialHappinessLvl: 0.8
-  initialEnergyLvl: 0
-  baseHappinessDecayRate: 0.005
-  baseEnergyDecayRate: 0.005
+  HappinessDecayRate: 0.005
+  EnergyDecayRate: 0.005
+  StressIncreaseRate: 0.005
+  HungerIncreaseRate: 0.005
   pickInteractionInterval: 0.5
   selectedObject: {fileID: 0}
 --- !u!1 &663926132
@@ -2205,7 +2207,6 @@ GameObject:
   - component: {fileID: 984593187}
   - component: {fileID: 984593186}
   - component: {fileID: 984593184}
-  - component: {fileID: 984593190}
   - component: {fileID: 984593192}
   - component: {fileID: 984593193}
   m_Layer: 6
@@ -2296,20 +2297,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &984593190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984593183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bee44ff772664534996c874498ee7f72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statesController: {fileID: 369298638}
-  patientHappiness: 100
 --- !u!114 &984593192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2338,9 +2325,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialHappinessLvl: 0.8
-  initialEnergyLvl: 0
-  baseHappinessDecayRate: 0.005
-  baseEnergyDecayRate: 0.005
+  HappinessDecayRate: 0.005
+  EnergyDecayRate: 0.005
+  StressIncreaseRate: 0.005
+  HungerIncreaseRate: 0.005
   pickInteractionInterval: 0.5
   selectedObject: {fileID: 0}
 --- !u!1 &1048121399

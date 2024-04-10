@@ -1,26 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Worker_AI : AIWithNeeds
 {
-    public float workerHappiness { get; protected set; }
-    //[SerializeField] UnityEngine.UI.Slider HappinessDisplay; Para mostrar
+    public float WorkerHappiness { get; protected set; }
 
-    private void Awake()
+    protected override void Initialise()
     {
-        workerHappiness = initialHappinessLvl;
-        currentEnergy = initialEnergyLvl = Random.Range(0.2f, 1f); //Nivel inicial de energía aleatorio para cada NPC
-        //HappinessDisplay.value = currentHappiness = initialHappinessLvl; Si se muestra así, pero no en cada uno, en el stateController
-    }
+        WorkerHappiness = initialHappinessLvl;
+        CurrentEnergy = Random.Range(0.3f, 1f); //Nivel inicial de energía aleatorio para cada NPC (baja)
+        CurrentStress = Random.Range(0f, 0.7f); //Nivel inicial de energía aleatorio para cada NPC (sube)
+        CurrentHunger = Random.Range(0f, 0.7f); //Nivel inicial de energía aleatorio para cada NPC (sube)
 
-    void Start()
-    {
-        StatesController.Instance.RegisterWorker(this); //Se meten en la lista todos los trabajadores de la escena
+        NPCStatesManager.Instance.RegisterWorker(this); //Se meten en la lista todos los trabajadores de la escena
     }
 
     void Update()
     {
         HandleInteractionOrPickNext(SmartObjectManager.Instance.WorkerObjects);
+        CurrentEnergy = Mathf.Clamp01(CurrentEnergy - EnergyDecayRate * Time.deltaTime);
+        CurrentStress = Mathf.Clamp01(CurrentStress + StressIncreaseRate * Time.deltaTime);
+        CurrentHunger = Mathf.Clamp01(CurrentHunger + HungerIncreaseRate * Time.deltaTime);
     }
 }

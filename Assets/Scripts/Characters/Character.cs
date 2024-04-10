@@ -6,11 +6,11 @@ namespace CharacterSystem
 {
     public class Character : MonoBehaviour
     {
-        [SerializeField] StatesController statesController;
+        [SerializeField] NPCStatesManager statesController;
 
         private void Start()
         {
-            statesController = GetComponent<StatesController>();
+            statesController = GetComponent<NPCStatesManager>();
         }
 
         [Range(0f, 100f)]

@@ -31,7 +31,7 @@ public class SimpleInteraction : BaseInteraction
         ++numCurrentUsers;
         if(numCurrentUsers > MaxSimultaneousUsers)
         {
-            Debug.LogError($"Too many users have locked this interaction: {_DisplayName}");
+            Debug.LogError($"Demasiados usuarios han bloqueado esta interacción: {_DisplayName}");
         }
     }
 
@@ -39,7 +39,7 @@ public class SimpleInteraction : BaseInteraction
     {
         if(numCurrentUsers <= 0)
         {
-            Debug.LogError($"Trying to perform an interaction when there are no users: {_DisplayName}");
+            Debug.LogError($"Intentando realizar una interacción cuando no hay usuarios: {_DisplayName}");
             return;
         }
 
@@ -50,7 +50,7 @@ public class SimpleInteraction : BaseInteraction
     {
         if(numCurrentUsers <= 0)
         {
-            Debug.LogError($"Trying to unlock an already unlocked interaction: {_DisplayName}");
+            Debug.LogError($"Intentando desbloquear una interacción ya desbloqueada: {_DisplayName}");
         }
         --numCurrentUsers;
     }

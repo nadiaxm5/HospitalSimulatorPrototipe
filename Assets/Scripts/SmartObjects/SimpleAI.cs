@@ -49,7 +49,7 @@ public abstract class SimpleAI : MonoBehaviour
     {
         interaction.UnLockInteraction();
         CurrentInteraction = null;
-        Debug.Log($"Finished {interaction.DisplayName}");
+        Debug.Log($"Terminado {interaction.DisplayName}");
     }
 
     protected void PickRandomInteraction(List<SmartObject> ObjectsByAIType)
@@ -60,7 +60,6 @@ public abstract class SimpleAI : MonoBehaviour
 
         //Elegir interacción aleatoria del set de interacciones del objeto seleccionado
         int interactionIndex = Random.Range(0, selectedObject.Interactions.Count);
-        Debug.Log($"En objeto {selectedObject.DisplayName} hay {selectedObject.Interactions.Count} interacciones");
         var selectedInteraction = selectedObject.Interactions[interactionIndex];
 
         //Comprobar si puede realizar la interacción
@@ -76,13 +75,13 @@ public abstract class SimpleAI : MonoBehaviour
                 float offsetX = 1f;
                 Vector3 sideDestination = selectedObject.InteractionPoint + new Vector3(offsetX, 0, 0);
                 Navigation.SetDestination(sideDestination);
-                Debug.Log($"Going to {CurrentInteraction.DisplayName} at the side of {selectedObject.DisplayName}");
+                Debug.Log($"Yendo a {CurrentInteraction.DisplayName} al lado de {selectedObject.DisplayName}");
             }
             else
             {
                 //Moverse al destino
                 Navigation.SetDestination(selectedObject.InteractionPoint);
-                Debug.Log($"Going to {CurrentInteraction.DisplayName} at {selectedObject.DisplayName}");
+                Debug.Log($"Yendo a {CurrentInteraction.DisplayName} en {selectedObject.DisplayName}");
             }
         }
     }

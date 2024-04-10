@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BaseNavigation))]
-public class AIWithNeeds : MonoBehaviour
+
+public abstract class AIWithNeeds : MonoBehaviour
 {
     [HideInInspector] public float initialHappinessLvl = 0.8f; //Este nivel bajará por acciones, igual para todos al inicio
-    [HideInInspector] public float initialEnergyLvl; //Diferente para cada NPC
 
-    [SerializeField] float baseHappinessDecayRate = 0.005f;
-    [SerializeField] float baseEnergyDecayRate = 0.005f;
+    [HideInInspector] public float HappinessDecayRate = 0.005f;
+    [HideInInspector] public float EnergyDecayRate = 0.005f;
+    [HideInInspector] public float StressIncreaseRate = 0.005f;
+    [HideInInspector] public float HungerIncreaseRate = 0.005f;
 
-    public float currentEnergy { get; protected set; }
+    public float CurrentEnergy { get; protected set; }
+    public float CurrentStress { get; protected set; }
+    public float CurrentHunger { get; protected set; }
 
     [SerializeField] protected float pickInteractionInterval = 0.5f;
 
@@ -27,6 +31,7 @@ public class AIWithNeeds : MonoBehaviour
     private void Awake()
     {
         Navigation = GetComponent<BaseNavigation>();
+        Initialise();
     }
 
     protected void HandleInteractionOrPickNext(List<SmartObject> ObjectsByAIType)
@@ -56,7 +61,7 @@ public class AIWithNeeds : MonoBehaviour
     {
         interaction.UnLockInteraction();
         CurrentInteraction = null;
-        Debug.Log($"Finished {interaction.DisplayName}");
+        Debug.Log($"Terminado {interaction.DisplayName}");
     }
 
     protected void PickRandomInteraction(List<SmartObject> ObjectsByAIType)
@@ -67,7 +72,6 @@ public class AIWithNeeds : MonoBehaviour
 
         //Elegir interacción aleatoria del set de interacciones del objeto seleccionado
         int interactionIndex = Random.Range(0, selectedObject.Interactions.Count);
-        Debug.Log($"En objeto {selectedObject.DisplayName} hay {selectedObject.Interactions.Count} interacciones");
         var selectedInteraction = selectedObject.Interactions[interactionIndex];
 
         //Comprobar si puede realizar la interacción
@@ -83,14 +87,16 @@ public class AIWithNeeds : MonoBehaviour
                 float offsetX = 1f;
                 Vector3 sideDestination = selectedObject.InteractionPoint + new Vector3(offsetX, 0, 0);
                 Navigation.SetDestination(sideDestination);
-                Debug.Log($"Going to {CurrentInteraction.DisplayName} at the side of {selectedObject.DisplayName}");
+                Debug.Log($"Yendo a {CurrentInteraction.DisplayName} al lado de {selectedObject.DisplayName}");
             }
             else
             {
                 //Moverse al destino
                 Navigation.SetDestination(selectedObject.InteractionPoint);
-                Debug.Log($"Going to {CurrentInteraction.DisplayName} at {selectedObject.DisplayName}");
+                Debug.Log($"Yendo a {CurrentInteraction.DisplayName} en {selectedObject.DisplayName}");
             }
         }
     }
+
+    protected abstract void Initialise(); //Para evitar tener varios Awake
 }

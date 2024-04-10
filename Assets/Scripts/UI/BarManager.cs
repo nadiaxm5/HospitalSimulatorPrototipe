@@ -9,9 +9,37 @@ public class BarManager : MonoBehaviour
     public Slider patientSlider;
     public Slider coworkerSlider;
 
+    int decision = 1;
+
     private void Start()
     {
         chaosSlider.value = 20f;
+    }
+
+    public void MakeDecision(int opcion)
+    {
+        switch (decision)
+        {
+            case 1:
+                if(opcion == 0)
+                {
+                    AddChaos(-10);
+                }
+                else if(opcion == 1)
+                {
+                    AddChaos(-10);
+                    AddHappinessPatient(-10);
+                }
+                else
+                {
+                    AddChaos(-10);
+                    AddHappinessCoworkers(-10);
+                }
+                break;
+            default:
+                break;
+        }
+        decision++;
     }
 
     public void AddChaos(float chaos)

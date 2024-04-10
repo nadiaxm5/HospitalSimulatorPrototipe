@@ -493,8 +493,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.1400146, y: 9.027985}
-  m_SizeDelta: {x: -52.569, y: -56.993}
+  m_AnchoredPosition: {x: 1.4650269, y: 9.027985}
+  m_SizeDelta: {x: -28.464, y: -56.993}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &75485697
 MonoBehaviour:
@@ -1648,6 +1648,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 973051517}
+        m_TargetAssemblyTypeName: BarManager, Assembly-CSharp
+        m_MethodName: MakeDecision
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &422348154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2486,8 +2498,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.5159912, y: -75.01001}
-  m_SizeDelta: {x: -36.189, y: -164.021}
+  m_AnchoredPosition: {x: 1.4650879, y: -61.40399}
+  m_SizeDelta: {x: -17.682, y: -160.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &684668989
 MonoBehaviour:
@@ -3247,8 +3259,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.5159912, y: -75.01001}
-  m_SizeDelta: {x: -36.189, y: -164.021}
+  m_AnchoredPosition: {x: 0.64501953, y: -59.41501}
+  m_SizeDelta: {x: -17.93, y: -127.992}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1001948951
 MonoBehaviour:
@@ -6054,6 +6066,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 973051517}
+        m_TargetAssemblyTypeName: BarManager, Assembly-CSharp
+        m_MethodName: MakeDecision
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1525216190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6995,8 +7019,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 754.1, y: 283.549}
-  m_SizeDelta: {x: -1837.75, y: -885.294}
+  m_AnchoredPosition: {x: 812.3, y: 276.191}
+  m_SizeDelta: {x: -1876.982, y: -914.982}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1853944253
 MonoBehaviour:
@@ -7325,8 +7349,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.1400146, y: 13.649017}
-  m_SizeDelta: {x: -52.569, y: -47.75}
+  m_AnchoredPosition: {x: 0.8909912, y: 10.497986}
+  m_SizeDelta: {x: -25.142, y: -41.447}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1871716678
 MonoBehaviour:
@@ -7729,8 +7753,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 6.362}
+  m_SizeDelta: {x: 0, y: -12.724}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1989851689
 MonoBehaviour:
@@ -7942,8 +7966,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 837.3, y: 283.549}
-  m_SizeDelta: {x: -1837.75, y: -885.294}
+  m_AnchoredPosition: {x: 860.1, y: 276.785}
+  m_SizeDelta: {x: -1873.91, y: -889.579}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2113690708
 MonoBehaviour:
@@ -8083,6 +8107,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1379244155}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
         m_MethodName: MakeChoice
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 973051517}
+        m_TargetAssemblyTypeName: BarManager, Assembly-CSharp
+        m_MethodName: MakeDecision
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

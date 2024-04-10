@@ -16,7 +16,6 @@ public class RedEffect : MonoBehaviour
         animator = GetComponent<Animator>();
         hasTalked = false;
         isPlaying = false;
-        hasTalkedAgain = false;
     }
 
     // Update is called once per frame
@@ -49,7 +48,6 @@ public class RedEffect : MonoBehaviour
                 }
 
                 emergencySound.Stop();
-                hasTalkedAgain = true;
             }
 
             if (!hasTalked)

@@ -26,6 +26,5 @@ public class AnimateCharacter : MonoBehaviour
             GetComponentInParent<NavMeshAgent>().speed = 0;
         else
             GetComponentInParent<NavMeshAgent>().speed = playerSpeed;
-        animator.SetBool("Talking", DialogueManager.GetInstance().dialogueIsPlaying);
     }
 }

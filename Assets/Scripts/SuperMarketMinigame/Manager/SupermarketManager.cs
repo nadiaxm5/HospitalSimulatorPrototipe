@@ -14,9 +14,12 @@ public class SupermarketManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI text;
     [SerializeField] GameObject[] products;
     [SerializeField] SupermarketManager supermarketManager;
+    [SerializeField] Money money;
     private int number; //Número del inventario
     public int realNumber; //El número de productos que hay en las estanterias
     private int buyNumber; //Número de productos que se van a comprar
+    public int price;
+    
     public Type type;
     
     private void Start()
@@ -78,9 +81,9 @@ public class SupermarketManager : MonoBehaviour
         for(int i = supermarketManager.realNumber; i < supermarketManager.realNumber + buyNumber; i++)
         {
             products[i].SetActive(true);
+            money.AddMoney(-price);
         }
         supermarketManager.realNumber += buyNumber;
-        Debug.Log(supermarketManager.realNumber);
     }
 
     public void ChangeColor()

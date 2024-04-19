@@ -7,14 +7,15 @@ INCLUDE ../globals.ink
 ===NEXT===
 
 Yo termino ahora mi turno, y las otras enfermeras tienen otras tareas. ¿Quién se encarga de hacerlo? 
+
 +[La enfermera que prepara el informe de turno]
-    Tus acciones tienen consecuencias. Con tu elección has disminuido el caos del hospital sin afectar a la felicidad de los pacientes o del equipo. ¡Enhorabuena!
+    ¿La enfermera que prepara el informe de turno?
     ->FINEMERGENCIA(0)
 +[La enfermera que entrega alimentos a los pacientes]
-    Tus acciones tienen consecuencias. Con tu elección has disminuido el caos del hospital, pero has afectado a la felicidad de los pacientes.
+    ¿La enfermera que entrega alimentos a los pacientes?
     ->FINEMERGENCIA(1)
 +[El enfermero que iba a terminar el turno]
-    Tus acciones tienen consecuencias. Con tu elección has disminuido el caos del hospital, pero has afectado a la felicidad del equipo. 
+    ¿El enfermero que iba a terminar el turno?
     ->FINEMERGENCIA(2)
 
 ===FIN===
@@ -22,6 +23,7 @@ Yo termino ahora mi turno, y las otras enfermeras tienen otras tareas. ¿Quién 
 ->END
 
 ===FINEMERGENCIA(election)===
-~ emergency_election = election
 ~ emergency = false
+~ emergency_election = election
+~ emergency_ended = true
 ->END

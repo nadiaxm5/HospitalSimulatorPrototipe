@@ -14,7 +14,7 @@ public class RedEffect : MonoBehaviour
     private bool hasTalkedAgain;
     [SerializeField] private AudioSource emergencySound;
     [SerializeField] private GameObject redEffect;
-    [SerializeField] private Image fadeToBlack;
+    [SerializeField] private GameObject fadeToBlack;
     [SerializeField] private TextMeshProUGUI textFadeToBlack;
     // Start is called before the first frame update
     void Start()
@@ -68,5 +68,10 @@ public class RedEffect : MonoBehaviour
                 hasTalked = true;
             }
         }
+    }
+
+    public void AcceptButton()
+    {
+        hasTalkedAgain = false;
     }
 }

@@ -21,6 +21,7 @@ public class RedEffect : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textFadeToBlack;
     [SerializeField] private NavMeshAgent playerNavMesh;
     [SerializeField] private GameObject[] npcs;
+    [SerializeField] private BussinesmanCinematic bussinesmanCinematic;
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +88,6 @@ public class RedEffect : MonoBehaviour
         {
             npcs[i].SetActive(false);
         }
-
+        bussinesmanCinematic.StartCinematic();
     }
 }

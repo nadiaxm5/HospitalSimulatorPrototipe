@@ -10,12 +10,14 @@ public class PCManager : MonoBehaviour
     [SerializeField] GameObject[] products;
     [SerializeField] InventoryManager inventory;
     [SerializeField] Money money;
+    [SerializeField] TextMeshProUGUI precio;
     private int number; //Número de productos que se van a comprar
     public int price;
     
     private void Start()
     {
         number = 0;
+        precio.text = price.ToString();
         for (int i = 0; i < products.Length; i++)
         {
             products[i].SetActive(false);

@@ -35,7 +35,6 @@ public class DialogueTrigger : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100) && hit.transform.name == transform.name)
             {
                 float distance = Vector3.Distance(player.transform.position, transform.position); //Calcula la distancia con el player
-                Debug.Log("Distancia:" + distance);
                 if(distance <= 4f) //Activa el dialogo solo si el jugador está cerca
                 {
                     DialogueManager.GetInstance().EnterDialogueMode(inkJSON);

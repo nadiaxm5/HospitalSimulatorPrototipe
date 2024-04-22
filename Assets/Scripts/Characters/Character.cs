@@ -9,7 +9,6 @@ namespace CharacterSystem
     {
         [SerializeField] StatesController statesController;
         public BarManager chaosBar;
-        public GameObject redScreen;
         private GameObject target;
 
         private float fadeAmount;
@@ -24,16 +23,6 @@ namespace CharacterSystem
 
         private void Update()
         {
-            //CODIGO PROVISIONAL PARA PROBAR LA BARRA, BORRAR DESPUES
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                chaosBar.AddChaos(10);
-            }
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                chaosBar.AddChaos(-10);
-            }
-
             chaos = chaosBar.getChaosValue();
 
             //Codigo para quitar paredes

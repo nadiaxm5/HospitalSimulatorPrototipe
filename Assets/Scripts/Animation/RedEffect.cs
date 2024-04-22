@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.AI;
 
 public class RedEffect : MonoBehaviour
 {
+    //Este código hay que optimizarlo
     Animator animatorRedEffect;
     Animator animatorFadeToBlack;
     private bool hasTalked;
     public BarManager barManager;
     private bool isPlaying;
     private bool hasTalkedAgain;
+    private bool emergencyFinish;
     [SerializeField] private AudioSource emergencySound;
     [SerializeField] private GameObject redEffect;
     [SerializeField] private GameObject fadeToBlack;
     [SerializeField] private TextMeshProUGUI textFadeToBlack;
+    [SerializeField] private NavMeshAgent playerNavMesh;
+    [SerializeField] private GameObject[] npcs;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +29,7 @@ public class RedEffect : MonoBehaviour
         hasTalked = false;
         isPlaying = false;
         hasTalkedAgain = false;
+        emergencyFinish = false;
     }
 
     // Update is called once per frame
@@ -32,7 +38,9 @@ public class RedEffect : MonoBehaviour
         if (!DialogueManager.GetInstance().dialogueIsPlaying)
         {
             animatorRedEffect.SetBool("emergency", ((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("emergency")).value);
-            animatorFadeToBlack.SetBool("fade", hasTalkedAgain);
+            animatorFadeToBlack.SetBool("fade", emergencyFinish);
+            playerNavMesh.enabled = !emergencyFinish;
+
             if (((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("emergency")).value && !isPlaying)
             {
                 emergencySound.Play();
@@ -59,6 +67,7 @@ public class RedEffect : MonoBehaviour
                     textFadeToBlack.text = "Tus acciones tienen consecuencias. Has reducido el caos del hospital, pero has afectado a la felicidad del equipo.";
                 }
                 hasTalkedAgain = true;
+                emergencyFinish = true;
                 emergencySound.Stop();
             }
 
@@ -72,6 +81,12 @@ public class RedEffect : MonoBehaviour
 
     public void AcceptButton()
     {
-        hasTalkedAgain = false;
+        emergencyFinish = false;
+        animatorFadeToBlack.SetBool("fade", false);
+        for (int i = 0; i < npcs.Length; i++)
+        {
+            npcs[i].SetActive(false);
+        }
+
     }
 }

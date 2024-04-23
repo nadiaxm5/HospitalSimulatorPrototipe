@@ -22,7 +22,6 @@ public class DialogueTrigger : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerNavMesh = player.GetComponent<Navigation_NavMesh>();
         dialogueBoxSolved.SetActive(false);
         timesTalked = 0;
         isGoingToTalk = false;
@@ -45,7 +44,6 @@ public class DialogueTrigger : MonoBehaviour
                     
             }
         }
-        Debug.Log("is going to talk:" + isGoingToTalk);
         text.text = ((Ink.Runtime.StringValue)DialogueManager.GetInstance().GetVariableState("current_mission")).value;
         if(isGoingToTalk)
         {

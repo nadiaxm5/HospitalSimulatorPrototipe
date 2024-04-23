@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 6262e571523743048a2dfedd12c9a2c1
+  - enabled: 1
+    path: Assets/Scenes/SuperMarketMinigame.unity
+    guid: 1902aa0f884281f44ad1d99ea2447241
   m_configObjects: {}

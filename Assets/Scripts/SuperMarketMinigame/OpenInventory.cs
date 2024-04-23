@@ -28,7 +28,6 @@ public class OpenInventory : MonoBehaviour
             }
         }
     }
-
     public void CloseWindow()
     {
         inventory.SetActive(false);

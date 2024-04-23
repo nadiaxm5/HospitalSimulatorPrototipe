@@ -14,13 +14,18 @@ public class DialogueTrigger : MonoBehaviour
     public int needToTalk;
     private int timesTalked;
     public TMP_Text text;
+    private Navigation_NavMesh playerNavMesh;
     //public ChaosBar chaosBar;
+    private bool isGoingToTalk;
+    private float distance;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        playerNavMesh = player.GetComponent<Navigation_NavMesh>();
         dialogueBoxSolved.SetActive(false);
         timesTalked = 0;
+        isGoingToTalk = false;
     }
 
     void Update()
@@ -29,27 +34,39 @@ public class DialogueTrigger : MonoBehaviour
         al clickar sobre un interactauble este muestra su linea de dialogo*/
         if (Input.GetMouseButtonDown(0) && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
+            isGoingToTalk = false;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             Physics.Raycast(ray, out hit, 100);
             if (Physics.Raycast(ray, out hit, 100) && hit.transform.name == transform.name)
             {
-                float distance = Vector3.Distance(player.transform.position, transform.position); //Calcula la distancia con el player
-                if(distance <= 4f) //Activa el dialogo solo si el jugador está cerca
-                {
-                    DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
-                    timesTalked++;
-                    if(timesTalked >= needToTalk)
-                    {
-                        dialogueBox.SetActive(false);
-                        dialogueBoxSolved.SetActive(true);
-                    }
-                    //chaosBar.SetChaos(30);
-                }
+                isGoingToTalk = true;
+                //playerNavMesh.SetDestination(transform.position);
                     
             }
         }
+        Debug.Log("is going to talk:" + isGoingToTalk);
         text.text = ((Ink.Runtime.StringValue)DialogueManager.GetInstance().GetVariableState("current_mission")).value;
+        if(isGoingToTalk)
+        {
+            distance = Vector3.Distance(player.transform.position, transform.position); //Calcula la distancia con el player
+            if (distance <= 4f)
+            {
+                isGoingToTalk = false;
+                StartDialogue();
+            }
+        }
+    }
+
+    private void StartDialogue()
+    {
+        DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+        timesTalked++;
+        if (timesTalked >= needToTalk)
+        {
+            dialogueBox.SetActive(false);
+            dialogueBoxSolved.SetActive(true);
+        }
     }
 
 }

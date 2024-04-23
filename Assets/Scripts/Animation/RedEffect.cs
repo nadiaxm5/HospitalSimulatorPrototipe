@@ -22,6 +22,7 @@ public class RedEffect : MonoBehaviour
     [SerializeField] private NavMeshAgent playerNavMesh;
     [SerializeField] private GameObject[] npcs;
     [SerializeField] private BussinesmanCinematic bussinesmanCinematic;
+    [SerializeField] private GameObject acceptButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,7 @@ public class RedEffect : MonoBehaviour
         isPlaying = false;
         hasTalkedAgain = false;
         emergencyFinish = false;
+        acceptButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -67,6 +69,7 @@ public class RedEffect : MonoBehaviour
                     barManager.AddHappinessCoworkers(-10);
                     textFadeToBlack.text = "Tus acciones tienen consecuencias. Has reducido el caos del hospital, pero has afectado a la felicidad del equipo.";
                 }
+                acceptButton.SetActive(true);
                 hasTalkedAgain = true;
                 emergencyFinish = true;
                 emergencySound.Stop();
@@ -89,5 +92,6 @@ public class RedEffect : MonoBehaviour
             npcs[i].SetActive(false);
         }
         bussinesmanCinematic.StartCinematic();
+        acceptButton.SetActive(false);
     }
 }

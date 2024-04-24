@@ -54,5 +54,6 @@ public class PCManager : MonoBehaviour
         inventory.realNumber += number;
         number = 0;
         text.text = number.ToString();
+        GlobalVariables.realNumbers[inventory.id] = inventory.realNumber; 
     }
 }

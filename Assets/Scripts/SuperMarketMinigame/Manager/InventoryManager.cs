@@ -8,17 +8,19 @@ public class InventoryManager : MonoBehaviour
     //Este código tiene muchos parches pero funciona
     [SerializeField] TextMeshProUGUI text;
     private int number; //Número del inventario
+    public int id;
     public int realNumber; //El número de productos que hay en las estanterias
 
-    private void Start()
+    private void Awake()
     {
+        realNumber = GlobalVariables.realNumbers[id];
         number = 0;
     }
 
     private void Update()
     {
         ChangeColor();
-        Debug.Log(gameObject.name + realNumber);
+        Debug.Log(id + GlobalVariables.realNumbers[id]);
     }
 
     public void AddNumberInventory()

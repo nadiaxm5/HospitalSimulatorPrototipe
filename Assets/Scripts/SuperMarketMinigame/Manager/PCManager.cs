@@ -18,7 +18,7 @@ public class PCManager : MonoBehaviour
     {
         number = 0;
         precio.text = price.ToString();
-        for (int i = 0; i < products.Length; i++)
+        for (int i = inventory.realNumber; i < products.Length; i++)
         {
             products[i].SetActive(false);
         }

@@ -18,6 +18,7 @@ public class InventoryManager : MonoBehaviour
     private void Update()
     {
         ChangeColor();
+        Debug.Log(gameObject.name + realNumber);
     }
 
     public void AddNumberInventory()

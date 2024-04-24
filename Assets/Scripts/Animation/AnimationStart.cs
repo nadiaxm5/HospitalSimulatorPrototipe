@@ -37,13 +37,17 @@ public class AnimationStart : MonoBehaviour
         if (isGoingToOpen)
         {
             distance = Vector3.Distance(player.transform.position, transform.position);
-            if (distance <= 4f)
+            if (distance <= 6f)
             {
                 animator.enabled = true;
                 animator.SetBool("Open", !animator.GetBool("Open"));
                 SoundFXManager.instance.PlaySoundFXClip(openDoorSound, transform, 1f);
                 isGoingToOpen = false;
+                Vector3 playerPosition = new Vector3(playerNavMesh.transform.position.x, playerNavMesh.transform.position.y, playerNavMesh.transform.position.z - 0.3f);
+                playerNavMesh.SetDestination(playerPosition);
+                Debug.Log(playerPosition);
             }
         }
+        //new Vector3(-2.7f, 0.954f, 38.9f)
     }
 }

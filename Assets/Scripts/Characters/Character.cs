@@ -14,11 +14,17 @@ namespace CharacterSystem
         private float fadeAmount;
         Material mat;
         Color currentColor;
+        [SerializeField] PlayerInfo playerInfo;
 
         private void Start()
         {
             statesController = GetComponent<StatesController>();
             chaosBar.AddChaos(chaos);
+
+            if (!GlobalVariables.fromMainMenu)
+            {
+                playerInfo.LoadPlayer();
+            }
         }
 
         private void Update()

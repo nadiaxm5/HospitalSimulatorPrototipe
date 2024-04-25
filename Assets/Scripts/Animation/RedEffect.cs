@@ -93,5 +93,7 @@ public class RedEffect : MonoBehaviour
         }
         bussinesmanCinematic.StartCinematic();
         acceptButton.SetActive(false);
+        playerNavMesh.enabled = true;
+        gameObject.SetActive(false); //Se acaba la cinematica y nunca vuelve a aparecer
     }
 }

@@ -6,11 +6,6 @@ using Ink.Runtime;
 
 public class ChangeScene : MonoBehaviour
 {
-    private void Start()
-    {
-
-    }
-
     public void NextScene(string scene)
     {
         SceneManager.LoadScene(scene);

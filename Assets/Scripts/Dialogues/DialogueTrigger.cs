@@ -13,7 +13,6 @@ public class DialogueTrigger : MonoBehaviour
     public GameObject dialogueBoxSolved;
     public int needToTalk;
     private int timesTalked;
-    public TMP_Text text;
     private Navigation_NavMesh playerNavMesh;
     //public ChaosBar chaosBar;
     private bool isGoingToTalk;
@@ -44,7 +43,6 @@ public class DialogueTrigger : MonoBehaviour
                     
             }
         }
-        text.text = ((Ink.Runtime.StringValue)DialogueManager.GetInstance().GetVariableState("current_mission")).value;
         if(isGoingToTalk)
         {
             distance = Vector3.Distance(player.transform.position, transform.position); //Calcula la distancia con el player

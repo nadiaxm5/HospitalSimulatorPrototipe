@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Globals Ink File")]
     [SerializeField] private TextAsset loadGlobalsJSON;
     [SerializeField] private AudioClip textSound;
+    [SerializeField] private TextMeshProUGUI textMission;
 
     private static DialogueManager instance;
     private Story currentStory;
@@ -71,6 +72,7 @@ public class DialogueManager : MonoBehaviour
             else
                 storyHasStarted = true;
         }
+        textMission.text = ((Ink.Runtime.StringValue)GetVariableState("current_mission")).value;
     }
 
     public void EnterDialogueMode(TextAsset inkJSON)

@@ -12,7 +12,7 @@ public class NPCMoveTo : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         animator.SetBool("Moving", false);
     }
 
@@ -20,8 +20,7 @@ public class NPCMoveTo : MonoBehaviour
     void Update()
     {
         if (((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("emergency")).value && !DialogueManager.GetInstance().dialogueIsPlaying){
-            //animator.SetBool("Moving", true);
-
+            animator.SetBool("Moving", true);
             agent.destination = waypoint.position;
         }
     }

@@ -6,6 +6,8 @@ VAR emergency_ended = false
 VAR talked_with_recepcionist = false
 VAR talked_with_director = false
 VAR talked_with_nurse_reunion = false
+VAR talked_with_angryman = false
+VAR talked_with_salesman = false
 
 VAR emergency_election = -1
 

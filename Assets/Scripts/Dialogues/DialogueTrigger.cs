@@ -40,7 +40,6 @@ public class DialogueTrigger : MonoBehaviour
             {
                 isGoingToTalk = true;
                 //playerNavMesh.SetDestination(transform.position);
-                    
             }
         }
         if(isGoingToTalk)
@@ -50,19 +49,19 @@ public class DialogueTrigger : MonoBehaviour
             {
                 isGoingToTalk = false;
                 StartDialogue();
+                timesTalked++;
+                if (timesTalked >= needToTalk)
+                {
+                    dialogueBox.SetActive(false);
+                    dialogueBoxSolved.SetActive(true);
+                }
             }
         }
     }
 
-    private void StartDialogue()
+    public void StartDialogue()
     {
         DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
-        timesTalked++;
-        if (timesTalked >= needToTalk)
-        {
-            dialogueBox.SetActive(false);
-            dialogueBoxSolved.SetActive(true);
-        }
     }
 
 }

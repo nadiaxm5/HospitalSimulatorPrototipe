@@ -16,9 +16,8 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 1
     motionNodeName: 
-    rigImportErrors: "Avatar creation failed:\n\tAmbiguous Transform 'Armature/TorsoInferior/TorsoSuperior/Cuello/Cabeza'
-      and 'Cabeza' found in hierarchy for human bone 'Head'. Transform name mapped
-      to a human bone must be unique.\n"
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'LeftHand' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -81,7 +80,143 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human: []
+    human:
+    - boneName: Armature
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L.PiernaSup
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: R.PiernaSup
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L.PiernaInf
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: R.PiernaInf
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L.Pie
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: R.Pie
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TorsoInferior
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TorsoSuperior
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Cuello
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Cabeza
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L.Brazo
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: R.Brazo
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L.Antebrazo
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: R.Antebrazo
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L.Mano
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: R.Mano
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
     skeleton:
     - name: NPC_enfadado(Clone)
       parentName: 
@@ -166,7 +301,7 @@ ModelImporter:
     - name: L.Antebrazo
       parentName: L.Brazo
       position: {x: -6.2049366e-10, y: 0.008831316, z: -1.8626451e-11}
-      rotation: {x: -0.0023916564, y: 0.7074045, z: 0.032860994, w: 0.70604056}
+      rotation: {x: -0.0023918073, y: 0.70740455, z: 0.03286094, w: 0.70604056}
       scale: {x: 0.99999994, y: 0.99999994, z: 1}
     - name: L.Mano
       parentName: L.Antebrazo
@@ -213,31 +348,46 @@ ModelImporter:
       position: {x: 0.021443486, y: 8.344079, z: -0.0855323}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 145.89494, y: 145.89494, z: 145.89494}
+    - name: Emisor|Rayo|Dupli|7
+      parentName: Emisor
+      position: {x: -0.0070640948, y: -0.00909688, z: 0.003883028}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071067}
+      scale: {x: 0.5483397, y: 0.5483397, z: 0.5483398}
+    - name: Emisor|Rayo|Dupli|8
+      parentName: Emisor
+      position: {x: 0.009647303, y: -0.0038348143, z: 0.0015716171}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071067}
+      scale: {x: 0.5483397, y: 0.5483397, z: 0.5483398}
+    - name: Emisor|Rayo|Dupli|9
+      parentName: Emisor
+      position: {x: 0.0028949797, y: -0.007676759, z: 0.0019837904}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071067}
+      scale: {x: 0.5483397, y: 0.5483397, z: 0.5483398}
+    - name: Emisor|Rayo|Dupli|10
+      parentName: Emisor
+      position: {x: -0.0065779737, y: 0.0060834545, z: 0.0007103252}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071067}
+      scale: {x: 0.5483397, y: 0.5483397, z: 0.5483398}
     - name: Emisor|Rayo|Dupli|11
       parentName: Emisor
-      position: {x: 0.0033225364, y: 0.0013551275, z: 0.0020563602}
+      position: {x: 0.00460406, y: -0.003115468, z: 0.00029224873}
       rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071067}
-      scale: {x: 0.34956655, y: 0.34956655, z: 0.34956658}
-    - name: Emisor|Rayo|Dupli|12
+      scale: {x: 0.5483397, y: 0.5483397, z: 0.5483398}
+    - name: Emisor|Spiral|Dupli|4.1
       parentName: Emisor
-      position: {x: -0.0006026733, y: -0.007661349, z: -0.0013110447}
-      rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071067}
-      scale: {x: 0.34956655, y: 0.34956655, z: 0.34956658}
-    - name: Emisor|Rayo|Dupli|13
+      position: {x: -0.005843514, y: -0.010487996, z: 0.0026170015}
+      rotation: {x: -0.6620755, y: -0.27467325, z: -0.26849154, w: 0.6435239}
+      scale: {x: 0.06285625, y: 0.06285625, z: 0.06285624}
+    - name: Emisor|Spiral|Dupli|5.1
       parentName: Emisor
-      position: {x: 0.009868637, y: 0.0008502596, z: 0.001174426}
-      rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071067}
-      scale: {x: 0.34956655, y: 0.34956655, z: 0.34956658}
-    - name: Emisor|Spiral|Dupli|7.1
+      position: {x: -0.008188212, y: -0.010223609, z: 0.0021910332}
+      rotation: {x: -0.66730666, y: -0.27529424, z: -0.26581216, w: 0.6389513}
+      scale: {x: 0.06285625, y: 0.06285625, z: 0.06285624}
+    - name: Emisor|Spiral|Dupli|6.1
       parentName: Emisor
-      position: {x: 0.0040424997, y: -0.012767159, z: -0.0008817959}
-      rotation: {x: -0.46485445, y: 0.53847617, z: 0.5319511, w: 0.45932752}
-      scale: {x: 0.043999374, y: 0.04399937, z: 0.043999374}
-    - name: Emisor|Spiral|Dupli|8.1
-      parentName: Emisor
-      position: {x: 0.0079155695, y: -0.008441303, z: -0.0023998118}
-      rotation: {x: -0.45220178, y: 0.5238131, z: 0.54638743, w: 0.4717988}
-      scale: {x: 0.043999374, y: 0.043999374, z: 0.04399937}
+      position: {x: 0.0030699472, y: 0.0008675371, z: 0.00030192852}
+      rotation: {x: -0.66428465, y: -0.274936, z: -0.26736522, w: 0.6416011}
+      scale: {x: 0.06285626, y: 0.06285626, z: 0.06285624}
     - name: Field
       parentName: NPC_enfadado(Clone)
       position: {x: 0.03350371, y: 12.55741, z: -0.0855323}
@@ -266,7 +416,7 @@ ModelImporter:
     - name: Spiral
       parentName: NPC_enfadado(Clone)
       position: {x: -0, y: 19.443264, z: 0}
-      rotation: {x: 0.9973353, y: -0.07295382, z: -0.0000000055078604, w: 0.000000075296725}
+      rotation: {x: 0.37847823, y: 0.9256102, z: 0.000000036773663, w: -0.000000032187803}
       scale: {x: 22.92602, y: 22.92602, z: 22.926022}
     armTwist: 0.5
     foreArmTwist: 0.5
@@ -282,7 +432,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
   avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1

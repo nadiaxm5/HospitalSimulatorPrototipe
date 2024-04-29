@@ -10,6 +10,7 @@ public class EnterDialogue : MonoBehaviour
     public void DialogueStart()
     {
         DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+        Time.timeScale = 1;
     }
    
 }

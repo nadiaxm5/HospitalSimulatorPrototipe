@@ -25,6 +25,18 @@ public class PauseGame : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    private void Update()
+    {
+        if(pauseMenu.activeInHierarchy && !DialogueManager.GetInstance().dialogueIsPlaying)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+    }
+
     //IEnumerator Resuming()
     //{
     //    float pauseTime = Time.realtimeSinceStartup + 1f;

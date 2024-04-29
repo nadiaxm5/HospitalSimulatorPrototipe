@@ -15,6 +15,7 @@ public class RedEffect : MonoBehaviour
     private bool isPlaying;
     private bool hasTalkedAgain;
     private bool emergencyFinish;
+    private bool nextCinematicStart;
     [SerializeField] private AudioSource emergencySound;
     [SerializeField] private GameObject redEffect;
     [SerializeField] private GameObject fadeToBlack;
@@ -23,6 +24,7 @@ public class RedEffect : MonoBehaviour
     [SerializeField] private GameObject[] npcs;
     [SerializeField] private BussinesmanCinematic bussinesmanCinematic;
     [SerializeField] private GameObject acceptButton;
+    [SerializeField] private GameObject writeButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +34,9 @@ public class RedEffect : MonoBehaviour
         isPlaying = false;
         hasTalkedAgain = false;
         emergencyFinish = false;
+        nextCinematicStart = false;
         acceptButton.SetActive(false);
+        writeButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -91,7 +95,11 @@ public class RedEffect : MonoBehaviour
         {
             npcs[i].SetActive(false);
         }
-        bussinesmanCinematic.StartCinematic();
+        if (!nextCinematicStart) //Estoy harto de poner tantos bools pero no se me ocurre nada más
+        {
+            bussinesmanCinematic.StartCinematic();
+            nextCinematicStart = true;
+        }
         acceptButton.SetActive(false);
         playerNavMesh.enabled = true;
         gameObject.SetActive(false); //Se acaba la cinematica y nunca vuelve a aparecer

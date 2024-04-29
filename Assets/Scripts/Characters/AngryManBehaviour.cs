@@ -10,8 +10,10 @@ public class AngryManBehaviour : MonoBehaviour
     public Transform waypoint;
     private float distance;
     private bool hasTalked;
+    private bool hasTalkedAgain;
     [SerializeField] TextAsset inkJSON;
     [SerializeField] AngryManCinematic angryManCinematic;
+    [SerializeField] GameObject phoneMenu;
 
     void Start()
     {
@@ -19,7 +21,7 @@ public class AngryManBehaviour : MonoBehaviour
         animator = GetComponent<Animator>();
         animator.SetBool("Moving", false);
         hasTalked = false;
-
+        hasTalkedAgain = false;
     }
 
     // Update is called once per frame
@@ -35,14 +37,18 @@ public class AngryManBehaviour : MonoBehaviour
                 DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
                 hasTalked = true;
             }
-            if (((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("talked_with_salesman")).value)
+            if (((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("talked_with_salesman")).value && !phoneMenu.activeInHierarchy)
             {
                 if (!DialogueManager.GetInstance().dialogueIsPlaying)
                 {
                     StartCoroutine(KillAngryMan());
                     angryManCinematic.StartFadeToBlack();
                 }
-                DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+                if (!hasTalkedAgain)
+                {
+                    DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+                    hasTalkedAgain = true;
+                }
             }
         }
     }

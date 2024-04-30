@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Ink.Runtime;
+using Ink.UnityIntegration;
 using UnityEngine.EventSystems;
+
 
 public class DialogueManager : MonoBehaviour
 {
@@ -13,15 +15,21 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private GameObject[] choices;
+
+    [Header("Globals Ink File")]
+    [SerializeField] private InkFile globalsInkFile;
+
     private static DialogueManager instance;
     private Story currentStory;
     public bool dialogueIsPlaying { get; set; }
     private TextMeshProUGUI[] choicesText;
     public bool storyHasStarted; //Variable provisional antes de crear efectos para el dialogo
+    private DialogueVariables dialogueVariables;
 
     private void Awake()
     {
         instance = this;
+        dialogueVariables = new DialogueVariables(globalsInkFile.filePath);
     }
 
     public static DialogueManager GetInstance()
@@ -68,6 +76,8 @@ public class DialogueManager : MonoBehaviour
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
+
+        dialogueVariables.StartListening(currentStory);
         Time.timeScale = 0; //Pausa el juego
 
         ContinueStory();
@@ -76,6 +86,7 @@ public class DialogueManager : MonoBehaviour
     private void ExitDialogueMode()
     {
         dialogueIsPlaying = false;
+        dialogueVariables.StopListening(currentStory);
         storyHasStarted = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
@@ -125,5 +136,16 @@ public class DialogueManager : MonoBehaviour
         //Al elegir una opción el dialogo continua 
         currentStory.ChooseChoiceIndex(choiceIndex);
         ContinueStory();
+    }
+
+    public Ink.Runtime.Object GetVariableState(string variableName)
+    {
+        Ink.Runtime.Object variableValue = null;
+        dialogueVariables.variables.TryGetValue(variableName, out variableValue);
+        if (variableValue == null)
+        {
+            Debug.LogWarning("Ink Variable was found to be null:  " + variableName);
+        }
+        return variableValue;
     }
 }

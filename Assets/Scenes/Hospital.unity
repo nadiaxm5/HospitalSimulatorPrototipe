@@ -372,6 +372,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Supervisor
       objectReference: {fileID: 0}
+    - target: {fileID: 6741748494450597717, guid: 7b3a2f59d1330354ab6bf0cd8b754cb0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: aa132f4cabb2e8c4c98f402690709bf0, type: 2}
+    - target: {fileID: 7706110884207132511, guid: 7b3a2f59d1330354ab6bf0cd8b754cb0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2f907621a790b964ebb905aa1bbd4210, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b3a2f59d1330354ab6bf0cd8b754cb0, type: 3}
 --- !u!1 &2113831520

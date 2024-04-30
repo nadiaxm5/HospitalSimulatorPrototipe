@@ -12748,7 +12748,7 @@ GameObject:
   - component: {fileID: 8679937719473356075}
   m_Layer: 0
   m_Name: ParedIzquierda
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -13227,7 +13227,7 @@ GameObject:
   - component: {fileID: 4424851658253591599}
   m_Layer: 0
   m_Name: ParedNevera.006
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -13597,7 +13597,7 @@ GameObject:
   - component: {fileID: 6734479053427442317}
   m_Layer: 0
   m_Name: ParedDivision
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15013,7 +15013,7 @@ GameObject:
   - component: {fileID: 4390715643744947586}
   m_Layer: 0
   m_Name: ParedNeveraFrontal
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15446,7 +15446,7 @@ GameObject:
   - component: {fileID: 4356615474042698931}
   m_Layer: 0
   m_Name: ParedNevera.002
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16241,7 +16241,7 @@ GameObject:
   - component: {fileID: 7128537378041780067}
   m_Layer: 0
   m_Name: ParedReuniones.001
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18528,7 +18528,7 @@ GameObject:
   - component: {fileID: 9193737486784891453}
   m_Layer: 0
   m_Name: ParedNevera.003
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -19757,7 +19757,7 @@ GameObject:
   - component: {fileID: 8986320562273511766}
   m_Layer: 0
   m_Name: ParedNevera.008
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -19822,7 +19822,7 @@ GameObject:
   - component: {fileID: 8339912811258777588}
   m_Layer: 0
   m_Name: ParedNevera.004
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -20903,7 +20903,7 @@ GameObject:
   - component: {fileID: 7396292853782327235}
   m_Layer: 0
   m_Name: ParedDerecha
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -21101,7 +21101,7 @@ GameObject:
   - component: {fileID: 4989421627807015825}
   m_Layer: 0
   m_Name: ParedDespacho.007
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -22014,7 +22014,7 @@ GameObject:
   - component: {fileID: 8279959064191765781}
   m_Layer: 0
   m_Name: ParedNevera.009
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -22365,7 +22365,7 @@ GameObject:
   - component: {fileID: 8663564751361099615}
   m_Layer: 0
   m_Name: ParedDespacho.005
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -22513,7 +22513,7 @@ GameObject:
   - component: {fileID: 8540550460440864606}
   m_Layer: 0
   m_Name: ParedDespacho.006
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -22862,7 +22862,7 @@ GameObject:
   - component: {fileID: 6575531872133269643}
   m_Layer: 0
   m_Name: ParedDespacho.002
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -23296,7 +23296,7 @@ GameObject:
   - component: {fileID: 6173528307278552640}
   m_Layer: 0
   m_Name: ParedNevera.001
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -23480,7 +23480,7 @@ GameObject:
   - component: {fileID: 6217172716656047684}
   m_Layer: 0
   m_Name: ParedNevera.005
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -23630,7 +23630,7 @@ GameObject:
   - component: {fileID: 6276743559672495251}
   m_Layer: 0
   m_Name: ParedDespacho.010
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -23799,7 +23799,7 @@ GameObject:
   - component: {fileID: 6316474331714551424}
   m_Layer: 0
   m_Name: ParedDespacho.012
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -24747,7 +24747,7 @@ GameObject:
   - component: {fileID: 8411524590561402909}
   m_Layer: 0
   m_Name: ParedDespachoJugador
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -25127,7 +25127,7 @@ GameObject:
   - component: {fileID: 6928682074683992178}
   m_Layer: 0
   m_Name: ParedDespacho.009
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -25516,7 +25516,7 @@ GameObject:
   - component: {fileID: 7487329099256188810}
   m_Layer: 0
   m_Name: ParedDespacho.003
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -26230,7 +26230,7 @@ GameObject:
   - component: {fileID: 7410771210261848317}
   m_Layer: 0
   m_Name: ParedDespacho.011
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -26263,7 +26263,7 @@ GameObject:
   - component: {fileID: 8633571301408044694}
   m_Layer: 0
   m_Name: ParedReuniones
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -26411,7 +26411,7 @@ GameObject:
   - component: {fileID: 8397677785242373125}
   m_Layer: 0
   m_Name: ParedNevera
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -26603,7 +26603,7 @@ GameObject:
   - component: {fileID: 7970954178718505541}
   m_Layer: 0
   m_Name: ParedTrasera
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -26800,7 +26800,7 @@ GameObject:
   - component: {fileID: 8613452032348775835}
   m_Layer: 0
   m_Name: ParedNevera.007
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -26849,7 +26849,7 @@ GameObject:
   - component: {fileID: 8159867075090415888}
   m_Layer: 0
   m_Name: ParedDespacho
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -27605,7 +27605,7 @@ GameObject:
   - component: {fileID: 8126122961782641352}
   m_Layer: 0
   m_Name: ParedDespacho.004
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -28468,7 +28468,7 @@ GameObject:
   - component: {fileID: 8361185424632437132}
   m_Layer: 0
   m_Name: ParedCamillasEntrada
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -28824,7 +28824,7 @@ GameObject:
   - component: {fileID: 9045716762630643355}
   m_Layer: 0
   m_Name: ParedDespacho.013
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -29187,7 +29187,7 @@ GameObject:
   - component: {fileID: 8655667857473260084}
   m_Layer: 0
   m_Name: ParedCamillas
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -29482,7 +29482,7 @@ GameObject:
   - component: {fileID: 8784066267397809212}
   m_Layer: 0
   m_Name: ParedDespacho.008
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -30440,7 +30440,7 @@ GameObject:
   - component: {fileID: 9152495652096160495}
   m_Layer: 0
   m_Name: ParedFrontal
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647

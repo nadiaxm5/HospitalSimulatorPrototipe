@@ -395,11 +395,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _DisplayName
-      value: Open Fridge
+      value: Abrir
       objectReference: {fileID: 0}
     - target: {fileID: 3817343837177712936, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _DisplayName
-      value: Fridge
+      value: Nevera
       objectReference: {fileID: 0}
     - target: {fileID: 4269102110864831730, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -663,8 +663,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: _Duration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _DisplayName
-      value: PlayArcade
+      value: Jugar
       objectReference: {fileID: 0}
     - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: MaxSimultaneousUsers
@@ -976,9 +980,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 369298636}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ebf896097f096e4bbad669119194963, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ad315abc02491f46bc3f205d2083039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  globalPatientHappiness: 0
+  globalWorkerHappiness: 0
 --- !u!1 &400421826
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,7 +1221,6 @@ GameObject:
   - component: {fileID: 443585690}
   - component: {fileID: 443585689}
   - component: {fileID: 443585687}
-  - component: {fileID: 443585694}
   - component: {fileID: 443585695}
   m_Layer: 6
   m_Name: Worker 2
@@ -1320,18 +1325,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &443585694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 443585685}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5628d8563d465084fa3d9638b1f34929, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &443585695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1344,7 +1337,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bba09db9c0fde40ae2f5b8e2f33846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickInteractionInterval: 1
+  initialHappinessLvl: 0.8
+  HappinessDecayRate: 0.005
+  EnergyDecayRate: 0.005
+  StressIncreaseRate: 0.005
+  HungerIncreaseRate: 0.005
+  pickInteractionInterval: 0.5
   selectedObject: {fileID: 0}
 --- !u!1001 &526537834
 PrefabInstance:
@@ -1566,7 +1564,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bba09db9c0fde40ae2f5b8e2f33846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickInteractionInterval: 1
+  initialHappinessLvl: 0.8
+  HappinessDecayRate: 0.005
+  EnergyDecayRate: 0.005
+  StressIncreaseRate: 0.005
+  HungerIncreaseRate: 0.005
+  pickInteractionInterval: 0.5
   selectedObject: {fileID: 0}
 --- !u!1 &663926132
 GameObject:
@@ -1758,11 +1761,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _Duration
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _DisplayName
-      value: LookAtMirror
+      value: Mirarse
       objectReference: {fileID: 0}
     - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _InteractionType
@@ -1774,7 +1777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3817343837177712936, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _DisplayName
-      value: Mirror
+      value: Espejo
       objectReference: {fileID: 0}
     - target: {fileID: 4269102110864831730, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: m_RootOrder
@@ -2204,7 +2207,6 @@ GameObject:
   - component: {fileID: 984593187}
   - component: {fileID: 984593186}
   - component: {fileID: 984593184}
-  - component: {fileID: 984593190}
   - component: {fileID: 984593192}
   - component: {fileID: 984593193}
   m_Layer: 6
@@ -2295,20 +2297,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &984593190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984593183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bee44ff772664534996c874498ee7f72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statesController: {fileID: 369298638}
-  patientHappiness: 100
 --- !u!114 &984593192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2336,7 +2324,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0e60600599654438bdba6a78b7708d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickInteractionInterval: 1
+  initialHappinessLvl: 0.8
+  HappinessDecayRate: 0.005
+  EnergyDecayRate: 0.005
+  StressIncreaseRate: 0.005
+  HungerIncreaseRate: 0.005
+  pickInteractionInterval: 0.5
   selectedObject: {fileID: 0}
 --- !u!1 &1048121399
 GameObject:
@@ -2698,7 +2691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _DisplayName
-      value: TakeABath
+      value: "Ba\xF1arse"
       objectReference: {fileID: 0}
     - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _InteractionType
@@ -2710,7 +2703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3817343837177712936, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _DisplayName
-      value: Bath
+      value: "Ba\xF1o"
       objectReference: {fileID: 0}
     - target: {fileID: 4269102110864831730, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3136,11 +3129,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _DisplayName
-      value: Cook
+      value: Cocinar
       objectReference: {fileID: 0}
     - target: {fileID: 3817343837177712936, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _DisplayName
-      value: Kitchen
+      value: Cocina
       objectReference: {fileID: 0}
     - target: {fileID: 4269102110864831730, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: m_LocalPosition.x

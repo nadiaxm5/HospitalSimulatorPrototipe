@@ -13,9 +13,9 @@ public class SmartObjectManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null) //Si ya hay una copia, borrarla
+        if (Instance != null) //No hacer copias
         {
-            Debug.LogError($"Trying to create a second ManagerSmartObject on {gameObject.name}");
+            Debug.LogError($"Intentando crear otro ManagerSmartObject en {gameObject.name}");
             Destroy(gameObject);
             return;
         }

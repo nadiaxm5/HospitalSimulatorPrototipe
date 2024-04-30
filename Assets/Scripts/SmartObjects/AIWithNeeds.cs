@@ -2,17 +2,108 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIWithNeeds : MonoBehaviour
+public enum EStat //Estados que afectan a las acciones
 {
-    // Start is called before the first frame update
-    void Start()
+    Energy,
+    Stress,
+    Hunger
+}
+
+[RequireComponent(typeof(BaseNavigation))]
+
+public abstract class AIWithNeeds : MonoBehaviour
+{
+    [HideInInspector] public float initialHappinessLvl = 0.8f; //Este nivel bajará por acciones, igual para todos al inicio
+
+    [HideInInspector] public float HappinessDecayRate = 0.005f;
+    [HideInInspector] public float EnergyDecayRate = 0.005f;
+    [HideInInspector] public float StressIncreaseRate = 0.005f;
+    [HideInInspector] public float HungerIncreaseRate = 0.005f;
+
+    public float CurrentEnergy { get; protected set; }
+    public float CurrentStress { get; protected set; }
+    public float CurrentHunger { get; protected set; }
+
+    [SerializeField] protected float pickInteractionInterval = 0.5f;
+
+    protected BaseNavigation Navigation;
+
+    protected BaseInteraction CurrentInteraction = null;
+    protected bool StartedPerforming = false;
+
+    protected float timeUntilNextInteractionPicked = -1f;
+
+    [HideInInspector] public SmartObject selectedObject;
+
+    private void Awake()
     {
-        
+        Navigation = GetComponent<BaseNavigation>();
+        Initialise();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected void HandleInteractionOrPickNext(List<SmartObject> ObjectsByAIType)
     {
-        
+        if (CurrentInteraction != null)
+        {
+            if (Navigation.IsAtDestination && !StartedPerforming)
+            {
+                StartedPerforming = true;
+                CurrentInteraction.Perform(this, OnInteractionFinished);
+            }
+        }
+        else
+        {
+            timeUntilNextInteractionPicked -= Time.deltaTime;
+
+            //Elegir una acción
+            if (timeUntilNextInteractionPicked <= 0)
+            {
+                timeUntilNextInteractionPicked = pickInteractionInterval;
+                PickRandomInteraction(ObjectsByAIType);
+            }
+        }
     }
+
+    protected void OnInteractionFinished(BaseInteraction interaction)
+    {
+        interaction.UnLockInteraction();
+        CurrentInteraction = null;
+        Debug.Log($"Terminado {interaction.DisplayName}");
+    }
+
+    protected void PickRandomInteraction(List<SmartObject> ObjectsByAIType)
+    {
+        //Elegir objeto aleatorio del set de objetos
+        int objectIndex = Random.Range(0, ObjectsByAIType.Count);
+        selectedObject = ObjectsByAIType[objectIndex];
+
+        //Elegir interacción aleatoria del set de interacciones del objeto seleccionado
+        int interactionIndex = Random.Range(0, selectedObject.Interactions.Count);
+        var selectedInteraction = selectedObject.Interactions[interactionIndex];
+
+        //Comprobar si puede realizar la interacción
+        if (selectedInteraction.CanPerform())
+        {
+            CurrentInteraction = selectedInteraction;
+            CurrentInteraction.LockInteraction();
+            StartedPerforming = false;
+
+            if (CurrentInteraction.NumCurrentUsers() >= 2) //Si es una acción de más de una persona y ya hay alguien a parte de ti
+            {
+                //Moverse al lado del destino
+                float offsetX = 1f;
+                Vector3 sideDestination = selectedObject.InteractionPoint + new Vector3(offsetX, 0, 0);
+                Navigation.SetDestination(sideDestination);
+                Debug.Log($"Yendo a {CurrentInteraction.DisplayName} al lado de {selectedObject.DisplayName}");
+            }
+            else
+            {
+                //Moverse al destino
+                Navigation.SetDestination(selectedObject.InteractionPoint);
+                Debug.Log($"Yendo a {CurrentInteraction.DisplayName} en {selectedObject.DisplayName}");
+            }
+        }
+    }
+
+    protected abstract void Initialise(); //Para evitar tener varios Awake
 }

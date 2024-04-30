@@ -397,6 +397,18 @@ PrefabInstance:
       propertyPath: _DisplayName
       value: Abrir
       objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: StatChanges.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: StatChanges.Array.data[0].ChangeValue
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: StatChanges.Array.data[0].TargetChange
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3817343837177712936, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _DisplayName
       value: Nevera
@@ -673,6 +685,18 @@ PrefabInstance:
     - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: MaxSimultaneousUsers
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: StatChanges.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: StatChanges.Array.data[0].ChangeValue
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: StatChanges.Array.data[0].TargetChange
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3817343837177712936, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _AIType
@@ -1339,9 +1363,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialHappinessLvl: 0.8
   HappinessDecayRate: 0.005
-  EnergyDecayRate: 0.005
-  StressIncreaseRate: 0.005
   HungerIncreaseRate: 0.005
+  WorkIncreaseRate: 0.005
+  HungerDecreaseRate: 0.05
+  WorkDecreaseRate: 0.05
+  StressVariableRate: 0.05
+  EnergyVariableRate: 0.05
   pickInteractionInterval: 0.5
   selectedObject: {fileID: 0}
 --- !u!1001 &526537834
@@ -1566,9 +1593,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialHappinessLvl: 0.8
   HappinessDecayRate: 0.005
-  EnergyDecayRate: 0.005
-  StressIncreaseRate: 0.005
   HungerIncreaseRate: 0.005
+  WorkIncreaseRate: 0.005
+  HungerDecreaseRate: 0.05
+  WorkDecreaseRate: 0.05
+  StressVariableRate: 0.05
+  EnergyVariableRate: 0.05
   pickInteractionInterval: 0.5
   selectedObject: {fileID: 0}
 --- !u!1 &663926132
@@ -1770,6 +1800,22 @@ PrefabInstance:
     - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _InteractionType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: StatChanges.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: StatChanges.Array.data[0].ChangeValue
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: StatChanges.Array.data[1].ChangeValue
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: StatChanges.Array.data[1].TargetChange
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3817343837177712936, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _AIType
@@ -2083,7 +2129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bcc38c2b8e1c964db3086594778f979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statesController: {fileID: 369298638}
+  chaosBar: {fileID: 0}
+  playerInfo: {fileID: 0}
   chaos: 0
 --- !u!136 &933518966
 CapsuleCollider:
@@ -2326,9 +2373,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialHappinessLvl: 0.8
   HappinessDecayRate: 0.005
-  EnergyDecayRate: 0.005
-  StressIncreaseRate: 0.005
   HungerIncreaseRate: 0.005
+  WorkIncreaseRate: 0.005
+  HungerDecreaseRate: 0.05
+  WorkDecreaseRate: 0.05
+  StressVariableRate: 0.05
+  EnergyVariableRate: 0.05
   pickInteractionInterval: 0.5
   selectedObject: {fileID: 0}
 --- !u!1 &1048121399
@@ -2618,6 +2668,9 @@ MonoBehaviour:
   - {fileID: 2131392374}
   - {fileID: 1525216187}
   - {fileID: 422348152}
+  loadGlobalsJSON: {fileID: 0}
+  textSound: {fileID: 0}
+  textMission: {fileID: 0}
   storyHasStarted: 0
 --- !u!4 &1379244156
 Transform:
@@ -2696,6 +2749,26 @@ PrefabInstance:
     - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _InteractionType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: StatChanges.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: StatChanges.Array.data[0].ChangeValue
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: StatChanges.Array.data[1].ChangeValue
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: StatChanges.Array.data[0].TargetChange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: StatChanges.Array.data[1].TargetChange
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3817343837177712936, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _AIType
@@ -3130,6 +3203,18 @@ PrefabInstance:
     - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _DisplayName
       value: Cocinar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: StatChanges.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: StatChanges.Array.data[0].ChangeValue
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482201647256582773, guid: ef94afbba85012d429075c90abaa007a, type: 3}
+      propertyPath: StatChanges.Array.data[0].TargetChange
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3817343837177712936, guid: ef94afbba85012d429075c90abaa007a, type: 3}
       propertyPath: _DisplayName

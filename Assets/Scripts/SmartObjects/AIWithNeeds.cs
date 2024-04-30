@@ -6,7 +6,8 @@ public enum EStat //Estados que afectan a las acciones
 {
     Energy,
     Stress,
-    Hunger
+    Hunger,
+    Work
 }
 
 [RequireComponent(typeof(BaseNavigation))]
@@ -15,14 +16,20 @@ public abstract class AIWithNeeds : MonoBehaviour
 {
     [HideInInspector] public float initialHappinessLvl = 0.8f; //Este nivel bajará por acciones, igual para todos al inicio
 
-    [HideInInspector] public float HappinessDecayRate = 0.005f;
-    [HideInInspector] public float EnergyDecayRate = 0.005f;
-    [HideInInspector] public float StressIncreaseRate = 0.005f;
-    [HideInInspector] public float HungerIncreaseRate = 0.005f;
+    [HideInInspector] public float HappinessDecayRate = 0.005f; //Varia por decisiones del jugador
+
+    [HideInInspector] public float HungerIncreaseRate = 0.005f; //Sube poco a poco constantemente
+    [HideInInspector] public float WorkIncreaseRate = 0.005f; //Sube poco a poco constantemente
+    [HideInInspector] public float HungerDecreaseRate = 0.05f; //Baja por acciones
+    [HideInInspector] public float WorkDecreaseRate = 0.05f; //Baja por acciones
+    [HideInInspector] public float StressVariableRate = 0.05f; //Sube y baja por acciones
+    [HideInInspector] public float EnergyVariableRate = 0.05f; //Sube y baja por acciones
+    
 
     public float CurrentEnergy { get; protected set; }
     public float CurrentStress { get; protected set; }
     public float CurrentHunger { get; protected set; }
+    public float CurrentWork { get; protected set; }
 
     [SerializeField] protected float pickInteractionInterval = 0.5f;
 

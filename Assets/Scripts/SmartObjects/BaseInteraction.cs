@@ -18,7 +18,7 @@ public abstract class BaseInteraction : MonoBehaviour
     [SerializeField] protected InteractionStatChange[] StatChanges;
 
     public string DisplayName => _DisplayName; //=> Da acceso de solo lectura, DisplayName accede a _DisplayName
-    public float Duration => _Duration;
+    public float Duration => _Duration; //Duración de la acción
 
     public abstract bool CanPerform(); //Dice si se puede realizar la acción o no
     public abstract void LockInteraction(); //Para acciones que solo pueda hacer un NPC a la vez

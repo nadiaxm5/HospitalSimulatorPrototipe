@@ -7,7 +7,7 @@ namespace CharacterSystem
 {
     public class Character : MonoBehaviour
     {
-        [SerializeField] StatesController statesController;
+        //[SerializeField] StatesController statesController;
         public ChaosBar chaosBar;
         public GameObject redScreen;
         private GameObject target;
@@ -18,7 +18,7 @@ namespace CharacterSystem
 
         private void Start()
         {
-            statesController = GetComponent<StatesController>();
+            //statesController = GetComponent<StatesController>();
             chaosBar.AddChaos(chaos);
         }
 

@@ -39,15 +39,15 @@ public class AngryManBehaviour : MonoBehaviour
             }
             if (((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("talked_with_salesman")).value && !phoneMenu.activeInHierarchy)
             {
-                if (!DialogueManager.GetInstance().dialogueIsPlaying)
-                {
-                    StartCoroutine(KillAngryMan());
-                    angryManCinematic.StartFadeToBlack();
-                }
                 if (!hasTalkedAgain)
                 {
                     DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
                     hasTalkedAgain = true;
+                }
+                if (!DialogueManager.GetInstance().dialogueIsPlaying)
+                {
+                    StartCoroutine(KillAngryMan());
+                    angryManCinematic.StartFadeToBlack();
                 }
             }
         }

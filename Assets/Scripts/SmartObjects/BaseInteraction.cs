@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-//public enum EAIType
-//{
-//    Patient = 0,
-//    Worker = 1
-//}
+[System.Serializable] //Permite que la clase sea convertida en un formato que pueda ser almacenado o transmitido
+
+public class InteractionStatChange
+{
+    public EStat TargetChange;
+    public float ChangeValue;
+}
 
 public abstract class BaseInteraction : MonoBehaviour
 {
     [SerializeField] protected string _DisplayName; //Visible para clase y subclases
-    //[SerializeField] protected EAIType _AIType = EAIType.Worker;
     [SerializeField] protected float _Duration = 0f;
+    [SerializeField] protected InteractionStatChange[] StatChanges;
 
     public string DisplayName => _DisplayName; //=> Da acceso de solo lectura, DisplayName accede a _DisplayName
-    //public EAIType AIType => _AIType;
     public float Duration => _Duration;
 
     public abstract bool CanPerform(); //Dice si se puede realizar la acción o no

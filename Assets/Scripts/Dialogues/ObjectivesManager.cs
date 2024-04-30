@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using Ink.Runtime;
 
-//SIN ACABAR
+//SIN ACABAR Y PROBABLEMENT NI SE ACABE PORQUE YA NO SE USA
 
 public class ObjectivesManager : MonoBehaviour
 {

@@ -8,32 +8,27 @@ namespace CharacterSystem
     public class Character : MonoBehaviour
     {
         //[SerializeField] StatesController statesController;
-        public ChaosBar chaosBar;
-        public GameObject redScreen;
+        public BarManager chaosBar;
         private GameObject target;
 
         private float fadeAmount;
         Material mat;
         Color currentColor;
+        [SerializeField] PlayerInfo playerInfo;
 
         private void Start()
         {
             //statesController = GetComponent<StatesController>();
             chaosBar.AddChaos(chaos);
+
+            if (!GlobalVariables.fromMainMenu)
+            {
+                playerInfo.LoadPlayer();
+            }
         }
 
         private void Update()
         {
-            //CODIGO PROVISIONAL PARA PROBAR LA BARRA, BORRAR DESPUES
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                chaosBar.AddChaos(10);
-            }
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                chaosBar.AddChaos(-10);
-            }
-
             chaos = chaosBar.getChaosValue();
 
             //Codigo para quitar paredes

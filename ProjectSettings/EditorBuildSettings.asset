@@ -6,15 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/NewHospital.unity
+    guid: a3d453ed871dbbc48a663a22458b761f
+  - enabled: 1
     path: Assets/Scenes/CharacterSelect.unity
     guid: c3fc9df5d58cdc14d9ad9c556a3e5ad6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StageScene.unity
     guid: 7a1ace68cd2221d47970aa873e7961ec
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 6262e571523743048a2dfedd12c9a2c1
   - enabled: 1
-    path: Assets/Scenes/NewHospital.unity
-    guid: a3d453ed871dbbc48a663a22458b761f
+    path: Assets/Scenes/SuperMarketMinigame.unity
+    guid: 1902aa0f884281f44ad1d99ea2447241
   m_configObjects: {}

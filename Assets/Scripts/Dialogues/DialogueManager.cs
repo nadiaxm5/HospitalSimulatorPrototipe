@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Ink.Runtime;
-using Ink.UnityIntegration;
 using UnityEngine.EventSystems;
 
 
@@ -17,7 +16,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject[] choices;
 
     [Header("Globals Ink File")]
-    [SerializeField] private InkFile globalsInkFile;
+    [SerializeField] private TextAsset loadGlobalsJSON;
+    [SerializeField] private AudioClip textSound;
+    [SerializeField] private TextMeshProUGUI textMission;
 
     private static DialogueManager instance;
     private Story currentStory;
@@ -25,11 +26,14 @@ public class DialogueManager : MonoBehaviour
     private TextMeshProUGUI[] choicesText;
     public bool storyHasStarted; //Variable provisional antes de crear efectos para el dialogo
     private DialogueVariables dialogueVariables;
+    private Coroutine displayLineCoroutine;
+    private float typingSpeed;
 
     private void Awake()
     {
         instance = this;
-        dialogueVariables = new DialogueVariables(globalsInkFile.filePath);
+        dialogueVariables = new DialogueVariables(loadGlobalsJSON);
+        typingSpeed = 0.01f;
     }
 
     public static DialogueManager GetInstance()
@@ -68,6 +72,7 @@ public class DialogueManager : MonoBehaviour
             else
                 storyHasStarted = true;
         }
+        textMission.text = ((Ink.Runtime.StringValue)GetVariableState("current_mission")).value;
     }
 
     public void EnterDialogueMode(TextAsset inkJSON)
@@ -78,7 +83,7 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(true);
 
         dialogueVariables.StartListening(currentStory);
-        Time.timeScale = 0; //Pausa el juego
+        //Time.timeScale = 0; //Pausa el juego
 
         ContinueStory();
     }
@@ -90,14 +95,19 @@ public class DialogueManager : MonoBehaviour
         storyHasStarted = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
-        Time.timeScale = 1; //Quita la pausa del juego
+        //Time.timeScale = 1; //Quita la pausa del juego
     }
 
     private void ContinueStory()
     {
         if (currentStory.canContinue)
         {
-            dialogueText.text = currentStory.Continue();
+            if (displayLineCoroutine != null)
+            {
+                StopCoroutine(displayLineCoroutine);
+            }
+            displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
+            //dialogueText.text = currentStory.Continue();
             DisplayChoices();
         }
         else
@@ -147,5 +157,23 @@ public class DialogueManager : MonoBehaviour
             Debug.LogWarning("Ink Variable was found to be null:  " + variableName);
         }
         return variableValue;
+    }
+
+    private IEnumerator DisplayLine(string line)
+    {
+        dialogueText.text = "";
+        bool willSound = true;
+
+        foreach (char letter in line.ToCharArray())
+        {
+            Debug.Log("Letra: " + letter);
+            if (willSound)
+                SoundFXManager.instance.PlaySoundFXClip(textSound, transform, 1f);
+            willSound = !willSound;
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+        DisplayChoices();
+
     }
 }

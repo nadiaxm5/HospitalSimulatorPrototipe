@@ -3,24 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Ink.Runtime;
-using Ink.UnityIntegration;
 
 public class ChangeScene : MonoBehaviour
 {
-    [SerializeField] private TextAsset inkJSON;
-
-    private void Start()
+    public void NextScene(string scene)
     {
-
+        SceneManager.LoadScene(scene);
+        GlobalVariables.fromMainMenu = false;
     }
 
-    private void Update()
+    public void SelectAvatar(int n)
     {
-        if (Input.GetMouseButtonDown(0) && !DialogueManager.GetInstance().dialogueIsPlaying)
-        {
-            DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
-        }
-        if(((Ink.Runtime.IntValue)DialogueManager.GetInstance().GetVariableState("character_is_chosen")).value != 0)
-           SceneManager.LoadScene("CopyHospital");
+        ((Ink.Runtime.IntValue)DialogueManager.GetInstance().GetVariableState("personaje")).value = n;
+        GlobalVariables.fromMainMenu = true;
+        SceneManager.LoadScene("NewHospital");
     }
 }

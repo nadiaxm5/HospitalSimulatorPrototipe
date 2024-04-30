@@ -5,7 +5,6 @@ using UnityEngine;
 public class PauseGame : MonoBehaviour
 {
     public GameObject pauseMenu;
-    public GameObject player;
 
     private void Start()
     {
@@ -24,6 +23,18 @@ public class PauseGame : MonoBehaviour
         //StartCoroutine(Resuming());
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
+    }
+
+    private void Update()
+    {
+        if(pauseMenu.activeInHierarchy && !DialogueManager.GetInstance().dialogueIsPlaying)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
 
     //IEnumerator Resuming()

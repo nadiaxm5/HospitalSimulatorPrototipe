@@ -19,6 +19,7 @@ public class BussinesmanCinematic : MonoBehaviour
     [SerializeField] private GameObject nurseReunion;
     private bool cinematicStart;
     private bool hasTalked;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,7 @@ public class BussinesmanCinematic : MonoBehaviour
         hasTalked = false;
         phone.SetActive(false);
         nurseReunion.SetActive(false);
+        animator = bussinesMan.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -35,6 +37,7 @@ public class BussinesmanCinematic : MonoBehaviour
         if(cinematicStart && player.transform.position.z >= 0 && !hasTalked)
         {
             agentBussinesMan.destination = waypoint.position;
+            animator.SetBool("Moving", agentBussinesMan.velocity.magnitude > 0.2f);
             playerNavMesh.enabled = false;
         }
 

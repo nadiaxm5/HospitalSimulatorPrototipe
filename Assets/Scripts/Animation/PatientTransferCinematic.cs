@@ -9,6 +9,7 @@ public class PatientTransferCinematic : MonoBehaviour
     [SerializeField] private GameObject nurse;
     [SerializeField] private Transform player;
     [SerializeField] private GameObject phone;
+    [SerializeField] private GameObject phoneMenu;
     [SerializeField] private TextAsset inkJSON;
     [SerializeField] private GameObject buttonNurse1;
     [SerializeField] private GameObject buttonNurse2;
@@ -36,6 +37,7 @@ public class PatientTransferCinematic : MonoBehaviour
             nurseAnimator.SetBool("Moving", nurseAgent.velocity.magnitude > 0.2f);
             nurseAgent.destination = player.position;
             distance = Vector3.Distance(player.position, transform.position);
+            Debug.Log("DISTANCE!!!!!!! " + distance);
             if (distance < 4f && !hasTalked)
             {
                 DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
@@ -49,6 +51,11 @@ public class PatientTransferCinematic : MonoBehaviour
             buttonNurse1.SetActive(true);
             buttonNurse2.SetActive(true);
             buttonNurse3.SetActive(true);
+        }
+
+        if (phoneMenu.activeInHierarchy)
+        {
+            hasTalked = false;
         }
     }
 

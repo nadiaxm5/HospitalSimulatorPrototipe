@@ -5,10 +5,14 @@ using UnityEngine.AI;
 
 public class PatientTransferCinematic : MonoBehaviour
 {
-    [SerializeField] Animator animatorRedEffect;
-    [SerializeField] GameObject nurse;
-    [SerializeField] Transform player;
-    [SerializeField] TextAsset inkJSON;
+    [SerializeField] private Animator animatorRedEffect;
+    [SerializeField] private GameObject nurse;
+    [SerializeField] private Transform player;
+    [SerializeField] private GameObject phone;
+    [SerializeField] private TextAsset inkJSON;
+    [SerializeField] private GameObject buttonNurse1;
+    [SerializeField] private GameObject buttonNurse2;
+    [SerializeField] private GameObject buttonNurse3;
     private NavMeshAgent nurseAgent;
     private Animator nurseAnimator;
     private float distance;
@@ -20,14 +24,16 @@ public class PatientTransferCinematic : MonoBehaviour
         nurseAnimator = nurse.GetComponent<Animator>();
         hasTalked = false;
         nurse.SetActive(false);
-
+        buttonNurse1.SetActive(false);
+        buttonNurse2.SetActive(false);
+        buttonNurse3.SetActive(false);
     }
 
     void Update()
     {
         if (((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("emergency")).value && !DialogueManager.GetInstance().dialogueIsPlaying) //Esta variable puede cambiar
         {
-            nurseAnimator.SetBool("Moving", nurseAgent.speed > 0.2f);
+            nurseAnimator.SetBool("Moving", nurseAgent.velocity.magnitude > 0.2f);
             nurseAgent.destination = player.position;
             distance = Vector3.Distance(player.position, transform.position);
             if (distance < 4f && !hasTalked)
@@ -35,6 +41,14 @@ public class PatientTransferCinematic : MonoBehaviour
                 DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
                 hasTalked = true;
             }
+        }
+
+        if (!DialogueManager.GetInstance().dialogueIsPlaying && hasTalked)
+        {
+            phone.SetActive(true);
+            buttonNurse1.SetActive(true);
+            buttonNurse2.SetActive(true);
+            buttonNurse3.SetActive(true);
         }
     }
 

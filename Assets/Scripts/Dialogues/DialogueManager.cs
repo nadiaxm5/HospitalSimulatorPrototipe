@@ -166,7 +166,6 @@ public class DialogueManager : MonoBehaviour
 
         foreach (char letter in line.ToCharArray())
         {
-            Debug.Log("Letra: " + letter);
             if (willSound)
                 SoundFXManager.instance.PlaySoundFXClip(textSound, transform, 1f);
             willSound = !willSound;

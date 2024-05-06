@@ -11,9 +11,9 @@ public class AngryManBehaviour : MonoBehaviour
     private float distance;
     private bool hasTalked;
     private bool hasTalkedAgain;
-    [SerializeField] TextAsset inkJSON;
-    [SerializeField] AngryManCinematic angryManCinematic;
-    [SerializeField] GameObject phoneMenu;
+    [SerializeField] private TextAsset inkJSON;
+    [SerializeField] private AngryManCinematic angryManCinematic;
+    [SerializeField] private GameObject phoneMenu;
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class AngryManBehaviour : MonoBehaviour
     {
         if (((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("emergency")).value && !DialogueManager.GetInstance().dialogueIsPlaying) //Esta variable puede cambiar
         {
-            animator.SetBool("Moving", agent.speed > 0.2f);
+            animator.SetBool("Moving", agent.velocity.magnitude > 0.2f);
             agent.destination = waypoint.position;
             distance = Vector3.Distance(waypoint.position, transform.position);
             if(distance < 4f && !hasTalked)

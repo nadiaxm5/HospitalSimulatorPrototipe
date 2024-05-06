@@ -8865,6 +8865,9 @@ MonoBehaviour:
   buttonNurse1: {fileID: 1992900686}
   buttonNurse2: {fileID: 1270508381}
   buttonNurse3: {fileID: 1699670291}
+  fadeToBlack: {fileID: 382797845}
+  textFadeToBlack: {fileID: 1723655000}
+  continueButton: {fileID: 1163072915}
 --- !u!1 &1464904275
 GameObject:
   m_ObjectHideFlags: 0

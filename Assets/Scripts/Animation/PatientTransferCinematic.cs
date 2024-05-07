@@ -18,6 +18,7 @@ public class PatientTransferCinematic : MonoBehaviour
     [SerializeField] private GameObject fadeToBlack;
     [SerializeField] private TextMeshProUGUI textFadeToBlack;
     [SerializeField] private GameObject continueButton;
+    [SerializeField] private NavMeshAgent playerNavMesh;
     private NavMeshAgent nurseAgent;
     private Animator nurseAnimator;
     private float distance;
@@ -80,6 +81,7 @@ public class PatientTransferCinematic : MonoBehaviour
 
     public void StartFadeToBlack()
     {
+        playerNavMesh.enabled = false;
         animatorRedEffect.SetBool("emergency", false);
         animatorFadeToBlack.SetBool("fade", true);
         textFadeToBlack.text = "Hay ocasiones en las que no se puede tener a todos contentos. Fuera cual fuera tu elección, la satisfacción del equipo se veía afectada.";

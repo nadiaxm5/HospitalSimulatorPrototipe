@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Worker_AI : AIWithNeeds
+public class Worker_AI : SimpleAI
 {
     public float WorkerHappiness { get; protected set; }
 

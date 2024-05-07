@@ -52,7 +52,6 @@ public class Navigation_NavMesh : BaseNavigation
         else if (LinkedAI != null && LinkedAgent.hasPath && LinkedAgent.remainingDistance <= LinkedAgent.stoppingDistance + 2f)
         {
             RotateToInteraction(LinkedAI.selectedObject.transform);
-            Debug.Log($"Rotating to {LinkedAI.selectedObject.DisplayName} at {LinkedAI.selectedObject.transform.position}");
         }
     }
 

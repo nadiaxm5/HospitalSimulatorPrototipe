@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Patient_AI : AIWithNeeds
+public class Patient_AI : SimpleAI
 {
     public float PatientHappiness { get; protected set; }
 
@@ -16,11 +16,14 @@ public class Patient_AI : AIWithNeeds
         CurrentWork = 0f; //Los pacientes no tienen trabajo
 
         NPCStatesManager.Instance.RegisterPatient(this); //Se meten en la lista todos los pacientes de la escena
+
+        Debug.Log($"Energia inicial: {CurrentEnergy}");
     }
 
     void Update()
     {
         HandleInteractionOrPickNext(SmartObjectManager.Instance.PatientObjects);
+        Debug.Log($"Energia actual: {CurrentEnergy}");
         CurrentHunger = Mathf.Clamp01(CurrentHunger + HungerIncreaseRate * Time.deltaTime);
         //CurrentEnergy = Mathf.Clamp01(CurrentEnergy - EnergyDecayRate * Time.deltaTime); //La energía sube y baja por acciones
         //CurrentStress = Mathf.Clamp01(CurrentStress + StressIncreaseRate * Time.deltaTime); //El estrés sube y baja por acciones

@@ -4,35 +4,15 @@ using UnityEngine;
 
 [RequireComponent(typeof(BaseNavigation))]
 
-public abstract class SimpleAI : MonoBehaviour
+public abstract class SimpleAI : BaseAI
 {
     [SerializeField] protected float pickInteractionInterval = 0.5f;
 
-    protected BaseNavigation Navigation;
-
-    protected BaseInteraction CurrentInteraction = null;
-    protected bool StartedPerforming = false;
-
     protected float timeUntilNextInteractionPicked = -1f;
-
-    [HideInInspector] public SmartObject selectedObject;
-
-    private void Awake()
-    {
-        Navigation = GetComponent<BaseNavigation>();
-    }
 
     protected void HandleInteractionOrPickNext(List<SmartObject> ObjectsByAIType)
     {
-        if (CurrentInteraction != null)
-        {
-            if (Navigation.IsAtDestination && !StartedPerforming)
-            {
-                StartedPerforming = true;
-                CurrentInteraction.Perform(this, OnInteractionFinished);
-            }
-        }
-        else
+        if (CurrentInteraction == null)
         {
             timeUntilNextInteractionPicked -= Time.deltaTime;
 
@@ -43,13 +23,6 @@ public abstract class SimpleAI : MonoBehaviour
                 PickRandomInteraction(ObjectsByAIType);
             }
         }
-    }
-
-    protected void OnInteractionFinished(BaseInteraction interaction)
-    {
-        interaction.UnLockInteraction();
-        CurrentInteraction = null;
-        Debug.Log($"Terminado {interaction.DisplayName}");
     }
 
     protected void PickRandomInteraction(List<SmartObject> ObjectsByAIType)

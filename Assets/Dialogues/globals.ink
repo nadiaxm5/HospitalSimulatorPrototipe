@@ -18,5 +18,5 @@ VAR times_talked_with_nurses = 0
 
 VAR emergency_election = -1
 
-
+VAR player_talking = false
 VAR current_mission = "Habla con la recepcionista"

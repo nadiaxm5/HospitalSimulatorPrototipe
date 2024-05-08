@@ -8,6 +8,7 @@ public class BarManager : MonoBehaviour
     public Slider chaosSlider;
     public Slider patientSlider;
     public Slider coworkerSlider;
+    public Slider moneySlider;
 
     int decision = 1;
 
@@ -54,6 +55,10 @@ public class BarManager : MonoBehaviour
     {
         coworkerSlider.value += happiness;
     }
+    public void AddMoney(float money)
+    {
+        moneySlider.value += money;
+    }
 
     public void SetChaos(float chaos)
     {
@@ -67,18 +72,26 @@ public class BarManager : MonoBehaviour
     {
         coworkerSlider.value = happiness;
     }
+    public void SetMoney(float money)
+    {
+        moneySlider.value = money;
+    }
 
-    public float getChaosValue()
+    public float GetChaosValue()
     {
         return chaosSlider.value;
     }
-    public float getHappinessPatientValue()
+    public float GetHappinessPatientValue()
     {
         return patientSlider.value;
     }
-    public float getHappinessPatientCoworkersValue()
+    public float GetHappinessPatientCoworkersValue()
     {
         return coworkerSlider.value;
+    }
+    public float GetMoneyValue()
+    {
+        return moneySlider.value;
     }
 
 }

@@ -43,7 +43,6 @@ public class SimpleInteraction : BaseInteraction
             Debug.LogError($"Intentando realizar una interacción cuando no hay usuarios: {_DisplayName}");
             return;
         }
-        Debug.Log("Entro al Perform");
         CurrentPerformers.Add(new PerformerInfo() { PerformingAI = performer, ElapsedTime = 0, OnCompleted = onCompleted });
     }
 
@@ -58,7 +57,6 @@ public class SimpleInteraction : BaseInteraction
 
     protected virtual void Update() //Virtual para que una subclase pueda tener su propia implementación
     {
-        Debug.Log($"Current performers: {CurrentPerformers.Count}");
         //Actualizar cualquier current performer
         for (int i = CurrentPerformers.Count - 1; i >= 0; i--)
         {
@@ -67,10 +65,8 @@ public class SimpleInteraction : BaseInteraction
             float previousElapsedTime = performer.ElapsedTime;
             performer.ElapsedTime = Mathf.Min(performer.ElapsedTime + Time.deltaTime, _Duration); //No sobrepasar duración
 
-            Debug.Log("Llego al for");
             if (StatChanges.Length > 0) //Aplicar cambios en los estados en un porcentaje
             {
-                Debug.Log("Llego al if");
                 ApplyStatChanges(performer.PerformingAI, (performer.ElapsedTime - previousElapsedTime) / _Duration);
             }
 

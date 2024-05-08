@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization; //Para renombrar e indicar el nombre de la versión anterior (FormerlySerializedAs)
 
 [System.Serializable] //Permite que la clase sea convertida en un formato que pueda ser almacenado o transmitido
 
@@ -15,10 +16,11 @@ public abstract class BaseInteraction : MonoBehaviour
 {
     [SerializeField] protected string _DisplayName; //Visible para clase y subclases
     [SerializeField] protected float _Duration = 0f;
-    [SerializeField] protected InteractionStatChange[] StatChanges;
+    [SerializeField, FormerlySerializedAs("StatChanges")] protected InteractionStatChange[] _StatChanges;
 
     public string DisplayName => _DisplayName; //=> Da acceso de solo lectura, DisplayName accede a _DisplayName
     public float Duration => _Duration; //Duración de la acción
+    public InteractionStatChange[] StatChanges => _StatChanges;
 
     public abstract bool CanPerform(); //Dice si se puede realizar la acción o no
 
@@ -32,10 +34,8 @@ public abstract class BaseInteraction : MonoBehaviour
 
     public void ApplyStatChanges(BaseAI performer, float proportion)
     {
-        Debug.Log("Llego al apply");
         foreach (var statChange in StatChanges)
         {
-            Debug.Log("Llego al foreach");
             performer.UpdateIndividualStat(statChange.TargetChange , statChange.ValueChange * proportion);
         }
     }

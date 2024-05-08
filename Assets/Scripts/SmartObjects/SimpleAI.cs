@@ -12,7 +12,15 @@ public abstract class SimpleAI : BaseAI
 
     protected void HandleInteractionOrPickNext(List<SmartObject> ObjectsByAIType)
     {
-        if (CurrentInteraction == null)
+        if (CurrentInteraction != null)
+        {
+            if (Navigation.IsAtDestination && !StartedPerforming)
+            {
+                StartedPerforming = true;
+                CurrentInteraction.Perform(this, OnInteractionFinished);
+            }
+        }
+        else
         {
             timeUntilNextInteractionPicked -= Time.deltaTime;
 

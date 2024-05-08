@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum EStat //Estados que afectan a las acciones
 {
-    Energy,
+    Fatigue,
     Stress,
     Hunger,
     Work
@@ -18,15 +18,10 @@ public class BaseAI : MonoBehaviour
 
     [HideInInspector] public float HappinessDecayRate = 0.005f; //Varia por decisiones del jugador
 
-    [HideInInspector] public float HungerIncreaseRate = 0.005f; //Sube poco a poco constantemente
-    [HideInInspector] public float WorkIncreaseRate = 0.005f; //Sube poco a poco constantemente
-    [HideInInspector] public float HungerDecreaseRate = 0.05f; //Baja por acciones
-    [HideInInspector] public float WorkDecreaseRate = 0.05f; //Baja por acciones
-    [HideInInspector] public float StressVariableRate = 0.05f; //Sube y baja por acciones
-    [HideInInspector] public float EnergyVariableRate = 0.05f; //Sube y baja por acciones
+    //Sube poco a poco constantemente las necesidades
+    [HideInInspector] public float IncreaseRate = 0.00001f;
 
-
-    public float CurrentEnergy { get; protected set; }
+    public float CurrentFatigue { get; protected set; }
     public float CurrentStress { get; protected set; }
     public float CurrentHunger { get; protected set; }
     public float CurrentWork { get; protected set; }
@@ -44,34 +39,6 @@ public class BaseAI : MonoBehaviour
         Initialise();
     }
 
-    protected virtual void Start()
-    {
-
-    }
-
-    //protected void HandleInteractionOrPickNext(List<SmartObject> ObjectsByAIType)
-    //{
-    //    if (CurrentInteraction != null)
-    //    {
-    //        if (Navigation.IsAtDestination && !StartedPerforming)
-    //        {
-    //            StartedPerforming = true;
-    //            CurrentInteraction.Perform(this, OnInteractionFinished);
-    //        }
-    //    }
-    //    else
-    //    {
-    //        timeUntilNextInteractionPicked -= Time.deltaTime;
-
-    //        //Elegir una acción
-    //        if (timeUntilNextInteractionPicked <= 0)
-    //        {
-    //            timeUntilNextInteractionPicked = pickInteractionInterval;
-    //            PickRandomInteraction(ObjectsByAIType);
-    //        }
-    //    }
-    //}
-
     protected virtual void OnInteractionFinished(BaseInteraction interaction)
     {
         interaction.UnLockInteraction();
@@ -81,13 +48,12 @@ public class BaseAI : MonoBehaviour
 
     public void UpdateIndividualStat(EStat target, float amount)
     {
-        Debug.Log($"Update {target} by {amount}");
         switch (target)
         {
-            case EStat.Energy: CurrentEnergy += amount; break;
-            case EStat.Stress: CurrentEnergy += amount; break;
-            case EStat.Hunger: CurrentHunger += amount; break;
-            case EStat.Work:   CurrentWork += amount; break;
+            case EStat.Fatigue: CurrentFatigue += amount; break;
+            case EStat.Stress:  CurrentStress += amount; break;
+            case EStat.Hunger:  CurrentHunger += amount; break;
+            case EStat.Work:    CurrentWork += amount; break;
         }
     }
 

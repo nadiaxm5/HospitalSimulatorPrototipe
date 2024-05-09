@@ -9,6 +9,8 @@ VAR talked_with_nurse_reunion = false
 VAR talked_with_angryman = false
 VAR talked_with_salesman = false
 
+VAR task_protocol = false
+
 //Enfermeras
 VAR talked_wtih_nurse_transfer = false
 VAR talked_with_nurse_1 = false
@@ -17,6 +19,7 @@ VAR talked_with_nurse_3 = false
 VAR times_talked_with_nurses = 0
 
 VAR emergency_election = -1
+VAR protocol_election = -1
 
 VAR player_talking = false
 VAR current_mission = "Habla con la recepcionista"

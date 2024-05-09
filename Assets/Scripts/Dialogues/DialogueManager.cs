@@ -154,7 +154,7 @@ public class DialogueManager : MonoBehaviour
         dialogueVariables.variables.TryGetValue(variableName, out variableValue);
         if (variableValue == null)
         {
-            Debug.LogWarning("Ink Variable was found to be null:  " + variableName);
+            Debug.LogWarning("Ink Variable was found to be null: " + variableName);
         }
         return variableValue;
     }

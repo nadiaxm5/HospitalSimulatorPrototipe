@@ -15,10 +15,12 @@ public class BussinesmanCinematic : MonoBehaviour
     [SerializeField] private Transform waypoint;
     [SerializeField] private TextAsset inkJSON;
     [SerializeField] private GameObject phone;
+    [SerializeField] private GameObject arrow;
     [SerializeField] private GameObject phoneMenu;
     [SerializeField] private GameObject nurseReunion;
     private bool cinematicStart;
     private bool hasTalked;
+    private bool finishedTalking;
     private Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -26,7 +28,9 @@ public class BussinesmanCinematic : MonoBehaviour
         bussinesMan.SetActive(false);
         cinematicStart = false;
         hasTalked = false;
+        finishedTalking = false;
         phone.SetActive(false);
+        arrow.SetActive(false);
         nurseReunion.SetActive(false);
         animator = bussinesMan.GetComponent<Animator>();
     }
@@ -47,12 +51,14 @@ public class BussinesmanCinematic : MonoBehaviour
             hasTalked = true;
         }
 
-        if (!DialogueManager.GetInstance().dialogueIsPlaying && hasTalked)
+        if (!DialogueManager.GetInstance().dialogueIsPlaying && hasTalked && !finishedTalking)
         {
             //agentBussinesMan.enabled = false;
             //playerNavMesh.enabled = true;
             bussinesMan.SetActive(false);
             phone.SetActive(true);
+            arrow.SetActive(true);
+            finishedTalking = true;
         }
     }
 
@@ -69,5 +75,10 @@ public class BussinesmanCinematic : MonoBehaviour
         playerNavMesh.enabled = true;
         Time.timeScale = 1;
         gameObject.SetActive(false); //Se acaba la cinematica y nunca vuelve a aparecer
+    }
+
+    public void KillArrow()
+    {
+        arrow.SetActive(false);
     }
 }

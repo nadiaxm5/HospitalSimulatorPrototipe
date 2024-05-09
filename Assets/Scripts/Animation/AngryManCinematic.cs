@@ -14,6 +14,7 @@ public class AngryManCinematic : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textFadeToBlack;
     [SerializeField] private GameObject continueButton;
     [SerializeField] private GameObject writeButton;
+    [SerializeField] private GameObject happyPopup;
     private Animator animatorFadeToBlack;
     private bool isImage; //Provisional hasta que hayan más imagenes
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class AngryManCinematic : MonoBehaviour
     {
         angryMan.SetActive(false);
         callButton.SetActive(false);
+        happyPopup.SetActive(false);
         animatorFadeToBlack = fadeToBlack.GetComponent<Animator>();
         phoneImage.SetActive(false);
         writeButton.SetActive(false);
@@ -32,6 +34,7 @@ public class AngryManCinematic : MonoBehaviour
     {
         if (((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("talked_with_nurse_reunion")).value && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
+            happyPopup.SetActive(true);
             StartCoroutine(StartCinematic());
         }
 

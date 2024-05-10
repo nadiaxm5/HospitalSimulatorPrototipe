@@ -12,7 +12,7 @@ public class DialogueTrigger : MonoBehaviour
     public GameObject dialogueBox;
     public GameObject dialogueBoxSolved;
     public int needToTalk;
-    private int timesTalked;
+    [HideInInspector] public int timesTalked;
     private Navigation_NavMesh playerNavMesh;
     //public ChaosBar chaosBar;
     private bool isGoingToTalk;
@@ -62,6 +62,12 @@ public class DialogueTrigger : MonoBehaviour
     public void StartDialogue()
     {
         DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+    }
+
+    public void ResetTimesTalked()
+    {
+        dialogueBox.SetActive(true);
+        dialogueBoxSolved.SetActive(false);
     }
 
 }

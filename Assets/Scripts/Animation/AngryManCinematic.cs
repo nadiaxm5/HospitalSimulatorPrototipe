@@ -53,6 +53,7 @@ public class AngryManCinematic : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         nurseReunion.SetActive(false);
+        happyPopup.SetActive(false);
         ((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("talked_with_nurse_reunion")).value = false;
         ((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("emergency")).value = true;
         angryMan.SetActive(true);

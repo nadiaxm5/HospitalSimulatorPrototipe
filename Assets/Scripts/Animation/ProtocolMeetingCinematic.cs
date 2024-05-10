@@ -13,13 +13,16 @@ public class ProtocolMeetingCinematic : MonoBehaviour
     [SerializeField] private GameObject happyPopup;
     [SerializeField] private GameObject angryPopup;
     [SerializeField] private GameObject npcsReunion;
+    [SerializeField] private DialogueTrigger npcNurse;
 
     private bool hasStarted;
+    private bool popupPoped;
     // Start is called before the first frame update
     void Start()
     {
         gameObject.SetActive(false);
         hasStarted = false;
+        popupPoped = false;
         popup.SetActive(false);
         happyPopup.SetActive(false);
         angryPopup.SetActive(false);
@@ -42,7 +45,7 @@ public class ProtocolMeetingCinematic : MonoBehaviour
             animatorRedEffect.SetBool("emergency", true);
         }
 
-        if (((Ink.Runtime.IntValue)DialogueManager.GetInstance().GetVariableState("protocol_election")).value != -1 && !DialogueManager.GetInstance().dialogueIsPlaying)
+        if (((Ink.Runtime.IntValue)DialogueManager.GetInstance().GetVariableState("protocol_election")).value != -1 && !DialogueManager.GetInstance().dialogueIsPlaying && !popupPoped)
         {
             if (((Ink.Runtime.IntValue)DialogueManager.GetInstance().GetVariableState("protocol_election")).value == 0)
             {
@@ -53,6 +56,7 @@ public class ProtocolMeetingCinematic : MonoBehaviour
                 angryPopup.SetActive(true);
             }
             StartCoroutine(StartCinematic());
+            popupPoped = true;
         }
     }
 
@@ -62,12 +66,15 @@ public class ProtocolMeetingCinematic : MonoBehaviour
         animatorRedEffect.gameObject.SetActive(true);
         ((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("emergency")).value = true; //Para probar
         ((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("task_protocol")).value = true;
+        npcNurse.ResetTimesTalked();
+        npcNurse.timesTalked = 0;
     }
 
     public void ContinueButton()
     {
         popup.SetActive(false);
         playerNavMesh.enabled = true;
+        Time.timeScale = 1;
     }
 
     IEnumerator StartCinematic()
@@ -84,5 +91,6 @@ public class ProtocolMeetingCinematic : MonoBehaviour
         {
             popupText.text = "Tu equipo no está satisfecho porque no tienes en cuenta sus ideas. Lo puedes hacer mejor.";
         }
+        gameObject.SetActive(false);
     }
 }

@@ -8,6 +8,7 @@ VAR talked_with_director = false
 VAR talked_with_nurse_reunion = false
 VAR talked_with_angryman = false
 VAR talked_with_salesman = false
+VAR talked_with_director_phone = false
 
 VAR task_protocol = false
 

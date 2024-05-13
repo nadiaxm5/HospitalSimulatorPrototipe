@@ -7009,6 +7009,7 @@ GameObject:
   - component: {fileID: 780172165}
   - component: {fileID: 780172164}
   - component: {fileID: 780172167}
+  - component: {fileID: 780172168}
   m_Layer: 5
   m_Name: Phone
   m_TagString: Untagged
@@ -7179,6 +7180,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 2126456075}
+--- !u!95 &780172168
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780172162}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8452541187b3d9c459341b888fb2defc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &783466735
 GameObject:
   m_ObjectHideFlags: 0
@@ -9363,6 +9384,9 @@ MonoBehaviour:
   popupText: {fileID: 574753199}
   playerNavMesh: {fileID: 9006858249752584138}
   reunionNPCs: {fileID: 1921275238}
+  dialogueTrigger: {fileID: 1008845756}
+  angryPopup: {fileID: 917614060}
+  npcsReunion: {fileID: 1124570559}
 --- !u!1 &1052890124
 GameObject:
   m_ObjectHideFlags: 0

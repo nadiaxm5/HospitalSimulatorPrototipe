@@ -8,6 +8,7 @@ public class SuperiorsReunionCinematic : MonoBehaviour
 {
     [SerializeField] private TextAsset inkJSON;
     [SerializeField] private Animator animatorRedEffect;
+    [SerializeField] private Animator animatorFadeToBlack;
     [SerializeField] private Animator phoneAnimator;
     [SerializeField] private GameObject popup;
     [SerializeField] private GameObject callMenu;
@@ -17,13 +18,18 @@ public class SuperiorsReunionCinematic : MonoBehaviour
     [SerializeField] private DialogueTrigger dialogueTrigger;
     [SerializeField] private GameObject angryPopup;
     [SerializeField] private GameObject npcsReunion;
+    [SerializeField] private GameObject phoneMenu;
     private bool hasStarted;
+    private bool hasTalkedPhone;
+    private bool animationActive; //Odio no saber programar ahhhh
 
     void Start()
     {
         gameObject.SetActive(false);
         reunionNPCs.SetActive(false);
         hasStarted = false;
+        hasTalkedPhone = false;
+        animationActive = false;
         callMenu.SetActive(false);
     }
 
@@ -38,10 +44,20 @@ public class SuperiorsReunionCinematic : MonoBehaviour
             hasStarted = true;
         }
 
-        if (((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("talked_with_nurse_reunion_director")).value && !DialogueManager.GetInstance().dialogueIsPlaying)
+        if (((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("talked_with_nurse_reunion_director")).value && !DialogueManager.GetInstance().dialogueIsPlaying && !hasTalkedPhone)
         {
             angryPopup.SetActive(true);
             StartCoroutine(StartCinematic());
+            phoneAnimator.SetBool("Ring", true);
+            callMenu.SetActive(true);
+            hasTalkedPhone = true;
+        }
+
+        if(hasTalkedPhone && !DialogueManager.GetInstance().dialogueIsPlaying && !callMenu.activeSelf && !animationActive)
+        {
+            animatorFadeToBlack.SetBool("green", true);
+            animationActive = true;
+            StartCoroutine(ResetCinematic());
         }
     }
 
@@ -57,10 +73,12 @@ public class SuperiorsReunionCinematic : MonoBehaviour
     {
         phoneAnimator.SetBool("Ring", false);
         DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
-        ((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("talked_with_director_phone")).value = true;
-        dialogueTrigger.timesTalked = 0;
-        dialogueTrigger.needToTalk = 1;
-        dialogueTrigger.ResetTimesTalked();
+        if (!((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("talked_with_nurse_reunion_director")).value)
+        {
+            dialogueTrigger.timesTalked = 0;
+            dialogueTrigger.needToTalk = 1;
+            dialogueTrigger.ResetTimesTalked();
+        }
         reunionNPCs.SetActive(true);
         callMenu.SetActive(false);
     }
@@ -69,5 +87,11 @@ public class SuperiorsReunionCinematic : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         npcsReunion.SetActive(false);
+    }
+
+    IEnumerator ResetCinematic()
+    {
+        yield return new WaitForSeconds(1f);
+        animatorFadeToBlack.SetBool("green", false);
     }
 }

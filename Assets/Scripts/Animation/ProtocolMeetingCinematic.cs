@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class ProtocolMeetingCinematic : MonoBehaviour
 {
     [SerializeField] private Animator animatorRedEffect;
+    [SerializeField] private Animator animatorFadeToBlack;
     [SerializeField] private GameObject popup;
     [SerializeField] private TextMeshProUGUI popupText;
     [SerializeField] private NavMeshAgent playerNavMesh;
@@ -14,7 +15,6 @@ public class ProtocolMeetingCinematic : MonoBehaviour
     [SerializeField] private GameObject angryPopup;
     [SerializeField] private GameObject npcsReunion;
     [SerializeField] private DialogueTrigger npcNurse;
-
     private bool hasStarted;
     private bool popupPoped;
     // Start is called before the first frame update
@@ -55,6 +55,7 @@ public class ProtocolMeetingCinematic : MonoBehaviour
             {
                 angryPopup.SetActive(true);
             }
+            animatorFadeToBlack.SetBool("green", true);
             StartCoroutine(StartCinematic());
             popupPoped = true;
         }
@@ -91,6 +92,7 @@ public class ProtocolMeetingCinematic : MonoBehaviour
         {
             popupText.text = "Tu equipo no está satisfecho porque no tienes en cuenta sus ideas. Lo puedes hacer mejor.";
         }
+        animatorFadeToBlack.SetBool("green", false);
         gameObject.SetActive(false);
     }
 }

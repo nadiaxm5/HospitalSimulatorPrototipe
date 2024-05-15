@@ -5,17 +5,9 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.AI;
 
-public class RedEffect : MonoBehaviour
+public class FirstEmergencyCinematic : MonoBehaviour
 {
-    //Este código hay que optimizarlo
-    Animator animatorRedEffect;
-    Animator animatorFadeToBlack;
-    private bool hasTalked;
-    public BarManager barManager;
-    private bool isPlaying;
-    private bool hasTalkedAgain;
-    private bool emergencyFinish;
-    private bool nextCinematicStart;
+    //Primer evento del juego 
     [SerializeField] private AudioSource emergencySound;
     [SerializeField] private GameObject redEffect;
     [SerializeField] private GameObject fadeToBlack;
@@ -25,7 +17,15 @@ public class RedEffect : MonoBehaviour
     [SerializeField] private BussinesmanCinematic bussinesmanCinematic;
     [SerializeField] private GameObject acceptButton;
     [SerializeField] private GameObject writeButton;
-    // Start is called before the first frame update
+    private Animator animatorRedEffect;
+    private Animator animatorFadeToBlack;
+    private bool hasTalked;
+    public BarManager barManager;
+    private bool isPlaying;
+    private bool hasTalkedAgain;
+    private bool emergencyFinish;
+    private bool nextCinematicStart;
+
     void Start()
     {
         animatorRedEffect = redEffect.GetComponent<Animator>();
@@ -39,7 +39,6 @@ public class RedEffect : MonoBehaviour
         writeButton.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!DialogueManager.GetInstance().dialogueIsPlaying)

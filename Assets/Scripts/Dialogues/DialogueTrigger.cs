@@ -13,7 +13,6 @@ public class DialogueTrigger : MonoBehaviour
     public GameObject dialogueBoxSolved;
     public int needToTalk;
     [HideInInspector] public int timesTalked;
-    private Navigation_NavMesh playerNavMesh;
     //public ChaosBar chaosBar;
     private bool isGoingToTalk;
     private float distance;

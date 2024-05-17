@@ -1,5 +1,5 @@
 INCLUDE ../globals.ink
-
+#Speaker: Enferemera
 {talked_wtih_nurse_transfer == false:
     Hay que trasladar a un paciente a otro hospital, y debe acompañarlo una enfermera. A lo mejor alguna de las que tienen el día libre pueden hacerlo.
     ~ talked_wtih_nurse_transfer = true

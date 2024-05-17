@@ -13,7 +13,7 @@ public class FirstEmergencyCinematic : MonoBehaviour
     [SerializeField] private GameObject fadeToBlack;
     [SerializeField] private TextMeshProUGUI textFadeToBlack;
     [SerializeField] private NavMeshAgent playerNavMesh;
-    [SerializeField] private GameObject[] npcs;
+    [SerializeField] private GameObject npcs;
     [SerializeField] private BussinesmanCinematic bussinesmanCinematic;
     [SerializeField] private GameObject acceptButton;
     [SerializeField] private GameObject writeButton;
@@ -25,6 +25,7 @@ public class FirstEmergencyCinematic : MonoBehaviour
     private bool hasTalkedAgain;
     private bool emergencyFinish;
     private bool nextCinematicStart;
+
 
     void Start()
     {
@@ -90,10 +91,7 @@ public class FirstEmergencyCinematic : MonoBehaviour
     {
         emergencyFinish = false;
         animatorFadeToBlack.SetBool("fade", false);
-        for (int i = 0; i < npcs.Length; i++)
-        {
-            npcs[i].SetActive(false);
-        }
+        npcs.SetActive(false);
         if (!nextCinematicStart) //Estoy harto de poner tantos bools pero no se me ocurre nada más
         {
             bussinesmanCinematic.StartCinematic();

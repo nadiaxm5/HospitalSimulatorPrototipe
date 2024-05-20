@@ -16,7 +16,9 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 1
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Avatar creation failed:\n\tAmbiguous Transform 'Cabeza' and
+      'Armature/TorsoInferior/TorsoSuperior/Cuello/Cabeza' found in hierarchy for
+      human bone 'Head'. Transform name mapped to a human bone must be unique.\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -24,7 +26,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -32,7 +34,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -79,8 +81,331 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human: []
-    skeleton: []
+    human:
+    - boneName: Armature
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L.PiernaSup
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: R.PiernaSup
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L.PiernaInf
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: R.PiernaInf
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L.Pie
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: R.Pie
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TorsoSuperior
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Cuello
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Cabeza
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L.Brazo
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: R.Brazo
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L.Antebrazo
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: R.Antebrazo
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L.Mano
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: R.Mano
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: NPC_pesao(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armature
+      parentName: NPC_pesao(Clone)
+      position: {x: 0.016650796, y: 3.6431003, z: -0.1885562}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: L.PiernaSup
+      parentName: Armature
+      position: {x: -0.0039495896, y: -0.0013734818, z: -0.0007425022}
+      rotation: {x: 0.013464349, y: -0.69138765, z: 0.72222155, w: 0.014066588}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: L.PiernaInf
+      parentName: L.PiernaSup
+      position: {x: 9.400537e-11, y: 0.014958696, z: 4.7406273e-11}
+      rotation: {x: -0.05971146, y: 0.70408535, z: -0.039294817, w: 0.7065085}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L.Pie
+      parentName: L.PiernaInf
+      position: {x: -6.5636413e-10, y: 0.019415254, z: -1.3022144e-10}
+      rotation: {x: 0.4845127, y: -0.51015127, z: 0.48964, w: 0.51502025}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: L.Pie_end
+      parentName: L.Pie
+      position: {x: -0, y: 0.0054672444, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R.PiernaSup
+      parentName: Armature
+      position: {x: 0.003483647, y: -0.0013734801, z: -0.0007425022}
+      rotation: {x: -0.053888526, y: -0.68790436, z: 0.72345674, w: 0.022225548}
+      scale: {x: 0.99999994, y: 1.0000002, z: 1.0000001}
+    - name: R.PiernaInf
+      parentName: R.PiernaSup
+      position: {x: -1.8626451e-11, y: 0.014958696, z: 1.11758706e-10}
+      rotation: {x: -0.07609662, y: -0.7027568, z: 0.042724404, w: 0.7060573}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: R.Pie
+      parentName: R.PiernaInf
+      position: {x: 3.7252902e-11, y: 0.019415252, z: -3.821333e-10}
+      rotation: {x: 0.518538, y: 0.47458678, z: -0.47311398, w: 0.53108287}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+    - name: R.Pie_end
+      parentName: R.Pie
+      position: {x: -0, y: 0.0054672444, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TorsoInferior
+      parentName: Armature
+      position: {x: -0.00023297142, y: -0.0014115624, z: -0.00012156956}
+      rotation: {x: 0.7234448, y: 0.00000008230003, z: 0.00000008624138, w: 0.69038224}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: TorsoSuperior
+      parentName: TorsoInferior
+      position: {x: -2.2536994e-12, y: 0.012459819, z: -2.0455633e-10}
+      rotation: {x: -0.05862011, y: -0.0012920831, z: -0.0036948605, w: 0.9982727}
+      scale: {x: 1.0255687, y: 1.0255686, z: 1.0255686}
+    - name: Cuello
+      parentName: TorsoSuperior
+      position: {x: 2.4447217e-11, y: 0.01328754, z: 1.4224497e-11}
+      rotation: {x: 0.017535832, y: 1.5793904e-19, z: -2.4923993e-10, w: 0.9998463}
+      scale: {x: 0.99999994, y: 0.9999999, z: 1}
+    - name: Cabeza
+      parentName: Cuello
+      position: {x: -3.6379788e-11, y: 0.0017472878, z: -1.7931596e-10}
+      rotation: {x: -0.0000000018626454, y: 2.9103837e-11, z: -2.364687e-11, w: 1}
+      scale: {x: 0.99999994, y: 0.9999999, z: 1}
+    - name: Cabeza_end
+      parentName: Cabeza
+      position: {x: -0, y: 0.020799687, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L.Brazo
+      parentName: TorsoSuperior
+      position: {x: -0.0058926214, y: 0.009073442, z: 0.0022082895}
+      rotation: {x: 0.03246576, y: -0.03088697, z: 0.71696824, w: 0.6956641}
+      scale: {x: 0.99999976, y: 1, z: 0.9999999}
+    - name: L.Antebrazo
+      parentName: L.Brazo
+      position: {x: -1.839362e-10, y: 0.008831315, z: -5.075708e-10}
+      rotation: {x: -0.0013493598, y: 0.7074835, z: 0.03090547, w: 0.70605254}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+    - name: L.Mano
+      parentName: L.Antebrazo
+      position: {x: -3.9115547e-10, y: 0.011292378, z: 1.5366822e-10}
+      rotation: {x: 0.07944692, y: 0.12761785, z: -0.090344675, w: 0.98449975}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: L.Mano_end
+      parentName: L.Mano
+      position: {x: -0, y: 0.0046903905, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R.Brazo
+      parentName: TorsoSuperior
+      position: {x: 0.005989535, y: 0.009515299, z: 0.0021907112}
+      rotation: {x: -0.017224094, y: -0.0196415, z: 0.71136665, w: -0.70233536}
+      scale: {x: 1.0255687, y: 1.0255687, z: 1.0255686}
+    - name: R.Antebrazo
+      parentName: R.Brazo
+      position: {x: -4.1327438e-11, y: 0.008831316, z: 5.0291415e-10}
+      rotation: {x: -0.013113812, y: -0.7069851, z: -0.013113809, w: 0.70698524}
+      scale: {x: 0.99999994, y: 0.99999976, z: 1}
+    - name: R.Mano
+      parentName: R.Antebrazo
+      position: {x: -1.16415315e-11, y: 0.011264049, z: 2.840534e-10}
+      rotation: {x: 0.0839408, y: -0.12912771, z: 0.16578466, w: 0.9740613}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: R.Mano_end
+      parentName: R.Mano
+      position: {x: -0, y: 0.004394642, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cabeza
+      parentName: NPC_pesao(Clone)
+      position: {x: -0, y: -4.650356, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Cuerpo
+      parentName: NPC_pesao(Clone)
+      position: {x: -0, y: -4.650356, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Emisor
+      parentName: NPC_pesao(Clone)
+      position: {x: 0.021443486, y: 8.344079, z: -0.0855323}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 145.89494, y: 145.89494, z: 145.89494}
+    - name: Emisor|Plane|Dupli|8
+      parentName: Emisor
+      position: {x: -0.0021652775, y: 0.00852359, z: 0.023040108}
+      rotation: {x: 0.000000061468086, y: 0.10238206, z: -0.00000014818896, w: 0.9947452}
+      scale: {x: 0.24717036, y: 0.24717037, z: 0.24717034}
+    - name: Emisor|Plane|Dupli|9
+      parentName: Emisor
+      position: {x: -0.00047817614, y: 0.008232056, z: 0.039342817}
+      rotation: {x: -0.0000000088087715, y: 0.51470315, z: -0.000000020596538, w: 0.85736847}
+      scale: {x: 0.24717031, y: 0.24717033, z: 0.24717033}
+    - name: Emisor|Plane|Dupli|10
+      parentName: Emisor
+      position: {x: -0.002456965, y: 0.007940521, z: 0.052277166}
+      rotation: {x: 0.000000053610723, y: -0.669842, z: 0.000000037062605, w: 0.74250364}
+      scale: {x: 0.24717031, y: 0.24717033, z: 0.24717034}
+    - name: Emisor|Plane|Dupli|11
+      parentName: Emisor
+      position: {x: 0.0016270031, y: 0.007648987, z: 0.061516926}
+      rotation: {x: 0.000000007713004, y: -0.4506769, z: -0.000000039021646, w: 0.89268714}
+      scale: {x: 0.24717033, y: 0.24717033, z: 0.24717036}
+    - name: Emisor|Plane|Dupli|12
+      parentName: Emisor
+      position: {x: -0.00028529868, y: 0.0073574525, z: 0.069008306}
+      rotation: {x: -0.000000016630525, y: 0.97173476, z: -0.00000030326711, w: 0.23607537}
+      scale: {x: 0.24717034, y: 0.24717037, z: 0.24717039}
+    - name: Emisor|Plane|Dupli|13
+      parentName: Emisor
+      position: {x: -0.0010355739, y: 0.0070659183, z: 0.07302682}
+      rotation: {x: -0.000000015204847, y: 0.88843095, z: -0.0000002546534, w: 0.45901027}
+      scale: {x: 0.24717036, y: 0.24717037, z: 0.24717043}
+    - name: Field
+      parentName: NPC_pesao(Clone)
+      position: {x: 0.03350371, y: 12.55741, z: -0.0855323}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 332.6866, y: 332.6866, z: 332.6866}
+    - name: Limites
+      parentName: NPC_pesao(Clone)
+      position: {x: -0.01016295, y: 9.617282, z: -0.0855323}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 187.58643, y: 187.58643, z: 187.58643}
+    - name: Pelo
+      parentName: NPC_pesao(Clone)
+      position: {x: -0, y: -4.650356, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Plane
+      parentName: NPC_pesao(Clone)
+      position: {x: 0.6825045, y: 17.130493, z: -0.0855323}
+      rotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+      scale: {x: 40.067673, y: 40.067673, z: 40.067673}
+    - name: Rayo
+      parentName: NPC_pesao(Clone)
+      position: {x: 0.6825045, y: 15.149464, z: -0.0855323}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Ropa
+      parentName: NPC_pesao(Clone)
+      position: {x: -0, y: -4.650356, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Spiral
+      parentName: NPC_pesao(Clone)
+      position: {x: -0, y: 19.443264, z: 0}
+      rotation: {x: 1, y: 6.780265e-23, z: -8.980734e-16, w: 0.0000000754979}
+      scale: {x: 22.926022, y: 22.926022, z: 22.926022}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -91,13 +416,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0

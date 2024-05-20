@@ -13,12 +13,16 @@ public class DialogueManager : MonoBehaviour
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private TextMeshProUGUI displayNameText;
     [SerializeField] private GameObject[] choices;
+
 
     [Header("Globals Ink File")]
     [SerializeField] private TextAsset loadGlobalsJSON;
     [SerializeField] private AudioClip textSound;
     [SerializeField] private TextMeshProUGUI textMission;
+
+    private const string SPEAKER_TAG = "speaker";
 
     private static DialogueManager instance;
     private Story currentStory;
@@ -108,6 +112,7 @@ public class DialogueManager : MonoBehaviour
             }
             displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
             //dialogueText.text = currentStory.Continue();
+            HandleTags(currentStory.currentTags);
             DisplayChoices();
         }
         else
@@ -154,7 +159,7 @@ public class DialogueManager : MonoBehaviour
         dialogueVariables.variables.TryGetValue(variableName, out variableValue);
         if (variableValue == null)
         {
-            Debug.LogWarning("Ink Variable was found to be null:  " + variableName);
+            Debug.LogWarning("Ink Variable was found to be null: " + variableName);
         }
         return variableValue;
     }
@@ -166,7 +171,6 @@ public class DialogueManager : MonoBehaviour
 
         foreach (char letter in line.ToCharArray())
         {
-            Debug.Log("Letra: " + letter);
             if (willSound)
                 SoundFXManager.instance.PlaySoundFXClip(textSound, transform, 1f);
             willSound = !willSound;
@@ -175,5 +179,18 @@ public class DialogueManager : MonoBehaviour
         }
         DisplayChoices();
 
+    }
+
+    private void HandleTags(List<string> currentTags)
+    {
+        foreach (string tag in currentTags)
+        {
+            //Separamos key del value gracias a los dos puntos ("speaker": Enferemero)
+            string[] splitTag = tag.Split(':');
+            string tagKey = splitTag[0].Trim(); //Trim para eliminar posibles espacios en blanco
+            string tagValue = splitTag[1].Trim();
+            if(tagKey == SPEAKER_TAG)
+                displayNameText.text = tagValue;
+        }
     }
 }

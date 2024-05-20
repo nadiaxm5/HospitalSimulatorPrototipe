@@ -29,7 +29,7 @@ namespace CharacterSystem
 
         private void Update()
         {
-            chaos = chaosBar.getChaosValue();
+            chaos = chaosBar.GetChaosValue();
 
             //Codigo para quitar paredes
             Ray ray = new(Camera.main.transform.position, transform.position - Camera.main.transform.position);

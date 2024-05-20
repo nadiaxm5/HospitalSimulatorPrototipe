@@ -14,15 +14,19 @@ public class AngryManCinematic : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textFadeToBlack;
     [SerializeField] private GameObject continueButton;
     [SerializeField] private GameObject writeButton;
+    [SerializeField] private GameObject happyPopup;
     private Animator animatorFadeToBlack;
+    private bool isImage; //Provisional hasta que hayan más imagenes
     // Start is called before the first frame update
     void Start()
     {
         angryMan.SetActive(false);
         callButton.SetActive(false);
+        happyPopup.SetActive(false);
         animatorFadeToBlack = fadeToBlack.GetComponent<Animator>();
         phoneImage.SetActive(false);
         writeButton.SetActive(false);
+        isImage = false;
     }
 
     // Update is called once per frame
@@ -30,6 +34,7 @@ public class AngryManCinematic : MonoBehaviour
     {
         if (((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("talked_with_nurse_reunion")).value && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
+            happyPopup.SetActive(true);
             StartCoroutine(StartCinematic());
         }
 
@@ -38,7 +43,7 @@ public class AngryManCinematic : MonoBehaviour
             callButton.SetActive(true);
         }
 
-        if (((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("talked_with_salesman")).value && !DialogueManager.GetInstance().dialogueIsPlaying)
+        if (((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("talked_with_salesman")).value && !DialogueManager.GetInstance().dialogueIsPlaying && !isImage)
         {
             phoneImage.SetActive(true);
         }
@@ -48,6 +53,7 @@ public class AngryManCinematic : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         nurseReunion.SetActive(false);
+        happyPopup.SetActive(false);
         ((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("talked_with_nurse_reunion")).value = false;
         ((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("emergency")).value = true;
         angryMan.SetActive(true);
@@ -68,5 +74,14 @@ public class AngryManCinematic : MonoBehaviour
         textFadeToBlack.text = "¡La comisión de compras ha aprobado la compra de los nuevos apósitos! Has mejorado la economía del hospital.";
         continueButton.SetActive(true);
         writeButton.SetActive(false);
+    }
+
+    public void DeleteImage()
+    {
+        if (phoneImage.activeInHierarchy)
+        {
+            phoneImage.SetActive(false);
+            isImage = true;
+        }
     }
 }

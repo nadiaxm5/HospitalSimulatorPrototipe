@@ -1,11 +1,11 @@
 INCLUDE ../globals.ink
 
-
+#Speaker: Enferemero
 {emergency == false: {personaje == 1:Bienvenida |Bienvenido} al equipo de enfermería. ¡Espero que tengas un primer día tranquilo! ->FIN |Se acabó la tranquilidad. Nuestro compañero se ha ido por una emergencia personal. Era responsable de administrar medicamentos críticos a un paciente en estado grave.} 
 ->NEXT
 
 ===NEXT===
-
+#Speaker: Enferemero
 Yo termino ahora mi turno, y las otras enfermeras tienen otras tareas. ¿Quién se encarga de hacerlo? 
 
 +[La enfermera que prepara el informe de turno]

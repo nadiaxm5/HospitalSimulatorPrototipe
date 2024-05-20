@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SuperMarketMinigame.unity
     guid: 1902aa0f884281f44ad1d99ea2447241
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 6b5b6ef9d0599c343bcfdfa158b6ae8f
   m_configObjects: {}

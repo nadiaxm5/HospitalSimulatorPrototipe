@@ -7,7 +7,8 @@ public class SimpleInteraction : BaseInteraction
 {
     protected class PerformerInfo
     {
-        public float ElapseTime;
+        public BaseAI PerformingAI;
+        public float ElapsedTime;
         public UnityAction<BaseInteraction> OnCompleted;
     }
 
@@ -35,15 +36,14 @@ public class SimpleInteraction : BaseInteraction
         }
     }
 
-    public override void Perform(MonoBehaviour performer, UnityAction<BaseInteraction> onCompleted)
+    public override void Perform(BaseAI performer, UnityAction<BaseInteraction> onCompleted)
     {
         if(numCurrentUsers <= 0)
         {
             Debug.LogError($"Intentando realizar una interacción cuando no hay usuarios: {_DisplayName}");
             return;
         }
-
-        CurrentPerformers.Add(new PerformerInfo() { ElapseTime = 0, OnCompleted = onCompleted });
+        CurrentPerformers.Add(new PerformerInfo() { PerformingAI = performer, ElapsedTime = 0, OnCompleted = onCompleted });
     }
 
     public override void UnLockInteraction()
@@ -58,13 +58,20 @@ public class SimpleInteraction : BaseInteraction
     protected virtual void Update() //Virtual para que una subclase pueda tener su propia implementación
     {
         //Actualizar cualquier current performer
-        for(int i = CurrentPerformers.Count - 1; i >= 0; i--)
+        for (int i = CurrentPerformers.Count - 1; i >= 0; i--)
         {
             PerformerInfo performer = CurrentPerformers[i];
-            performer.ElapseTime += Time.deltaTime;
+
+            float previousElapsedTime = performer.ElapsedTime;
+            performer.ElapsedTime = Mathf.Min(performer.ElapsedTime + Time.deltaTime, _Duration); //No sobrepasar duración
+
+            if (StatChanges.Length > 0) //Aplicar cambios en los estados en un porcentaje
+            {
+                ApplyStatChanges(performer.PerformingAI, (performer.ElapsedTime - previousElapsedTime) / _Duration);
+            }
 
             //Comprobar si la interacción se ha completado
-            if(performer.ElapseTime >= _Duration)
+            if(performer.ElapsedTime >= _Duration)
             {
                 performer.OnCompleted.Invoke(this);
                 CurrentPerformers.RemoveAt(i);
